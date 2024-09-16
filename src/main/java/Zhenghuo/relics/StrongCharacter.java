@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
+import static com.megacrit.cardcrawl.helpers.PotionHelper.potions;
 
 // 继承CustomRelic
 public class StrongCharacter extends CustomRelic implements ClickableRelic {
@@ -66,11 +67,25 @@ public class StrongCharacter extends CustomRelic implements ClickableRelic {
         }
         AbstractDungeon.floorNum = 1;
         AbstractDungeon.actNum=0;
+        player.gold=99;
+        for(int j=0;j<potions.size();j++)
+        {
+            player.potions.set(j,new PotionSlot(j));
+        }
+
         int i=ascensionLevel;
         ascensionLevel=1;
         AbstractDungeon.generateSeeds();
         CardCrawlGame.dungeon=new Exordium(AbstractDungeon.player,new ArrayList<String>());
         ascensionLevel=i;
+        player.maxHealth=player.getLoadout().maxHp;
+        if(ascensionLevel >= 14){
+            player.maxHealth-=player.getAscensionMaxHPLoss();
+        }
+        player.currentHealth=player.maxHealth;
+        if(ascensionLevel>=6){
+            player.currentHealth*=0.9f;
+        }
         CardCrawlGame.music.fadeOutBGM();
         CardCrawlGame.music.fadeOutTempBGM();
         AbstractDungeon.fadeOut();
@@ -110,4 +125,5 @@ public class StrongCharacter extends CustomRelic implements ClickableRelic {
     public void onEnterRoom(AbstractRoom room)
     {
     }
+
 }

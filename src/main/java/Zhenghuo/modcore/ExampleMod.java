@@ -22,7 +22,7 @@ public class ExampleMod implements PostDungeonInitializeSubscriber,OnStartBattle
 public static String NowPlayer=null;
     public ExampleMod() {
         BaseMod.subscribe(this); // 告诉basemod你要订阅事件
-        BaseMod.addSaveField("Zhenghuo", this);
+        BaseMod.addSaveField("Tieba", this);
     }
 
     public static void initialize() {
@@ -86,10 +86,7 @@ public static String NowPlayer=null;
 
     }
 
-public static void ChangeFirstPlayer()
-{
 
-}
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if(NowPlayer==null)

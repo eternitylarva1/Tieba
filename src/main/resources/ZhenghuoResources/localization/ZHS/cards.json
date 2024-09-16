@@ -1,33 +1,20 @@
 {
-  "Zhenghuo:Soul_R": {
+  "Tieba:Soul_R": {
     "NAME": "赌上你的灵魂",
     "DESCRIPTION": "获得 !M! 点力量，3回合后你的角色永久变为故障机器人 ",
     "UPGRADE_DESCRIPTION": "获得 !M! 点力量， 3回合后你的角色永久变为故障机器人 "
-  },"Zhenghuo:Soul_G": {
+  },"Tieba:Soul_G": {
     "NAME": "赌上你的灵魂",
     "DESCRIPTION": "获得 !M! 层无实体，4回合后你的角色永久变为故障机器人 ",
     "UPGRADE_DESCRIPTION": "获得 !M! 层无实体， 4回合后你的角色永久变为故障机器人 "
-  },"Zhenghuo:Soul_P": {
+  },"Tieba:Soul_P": {
     "NAME": "赌上你的灵魂",
     "DESCRIPTION": "进入神格，!M! 回合后你的角色永久变为故障机器人 ",
     "UPGRADE_DESCRIPTION": "进入神格，!M! 回合后你的角色永久变为故障机器人 "
-  },"Zhenghuo:Golden_Form": {
+  },"Tieba:Golden_Form": {
   "NAME": "黄金契约",
   "DESCRIPTION": "获得 !M! 金币，然后交换你的金币数和目标的血量",
   "UPGRADE_DESCRIPTION": "获得 !M! 金币，然后交换你的金币数和目标的血量 "
-},
-  "Zhenghuo:CharacterCard": {
-    "NAME": "文字牌",
-    "DESCRIPTION": "一个普通的文字",
-    "UPGRADE_DESCRIPTION": "一个普通的文字 "
-  },
-  "Zhenghuo:Characterdesign": {
-    "NAME": "文字分解",
-    "DESCRIPTION": "可以把你的卡牌分解成文字",
-    "UPGRADE_DESCRIPTION": "可以把你的卡牌分解成文字 "
-  },"Zhenghuo:Charactergather": {
-  "NAME": "文字组合",
-  "DESCRIPTION": "可以把你的文字组成卡牌",
-  "UPGRADE_DESCRIPTION": "可以把你的文字组成卡牌"
 }
+
 }
