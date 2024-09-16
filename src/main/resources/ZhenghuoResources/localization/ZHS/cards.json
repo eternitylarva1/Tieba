@@ -15,6 +15,27 @@
   "NAME": "黄金契约",
   "DESCRIPTION": "获得 !M! 金币，然后交换你的金币数和目标的血量",
   "UPGRADE_DESCRIPTION": "获得 !M! 金币，然后交换你的金币数和目标的血量 "
+},"Chongqi": {
+  "NAME": "重启",
+  "DESCRIPTION": "重新开始这把游戏",
+  "UPGRADE_DESCRIPTION": "重新开始这把游戏"
+},"JianXiao": {
+  "NAME": "尖啸",
+  "DESCRIPTION": "你拥有 tieba:开腔的欲望 ",
+  "UPGRADE_DESCRIPTION": "你拥有 tieba:开腔的欲望 "
+},"WeiMi": {
+  "NAME": "萎靡",
+  "DESCRIPTION": "破损敌人的 tieba:核心 tieba:。 ",
+  "UPGRADE_DESCRIPTION": "破损敌人的 tieba:核心 tieba:。"
+},"Shuangchongcunzai": {
+  "NAME": "双重存在",
+  "DESCRIPTION": " tieba:夹击 你的敌人",
+  "UPGRADE_DESCRIPTION": " tieba:夹击 你的敌人"
+},"Xuyuan": {
+  "NAME": "许愿",
+  "DESCRIPTION": "获得星光的指引",
+  "UPGRADE_DESCRIPTION": " 获得星光的指引"
 }
+
 
 }

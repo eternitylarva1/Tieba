@@ -1,5 +1,6 @@
 package Zhenghuo.card;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.blue.Reboot;
 
 //
@@ -30,7 +31,7 @@ public class Chongqi extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public Chongqi() {
-        super("Reboot", cardStrings.NAME, "blue/skill/reboot", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
+        super(ID, cardStrings.NAME, "blue/skill/reboot", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
         this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
@@ -41,7 +42,7 @@ public class Chongqi extends AbstractCard {
     }
 
     public AbstractCard makeCopy() {
-        return new com.megacrit.cardcrawl.cards.blue.Reboot();
+        return new Chongqi();
     }
 
     public void upgrade() {

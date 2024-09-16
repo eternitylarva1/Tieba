@@ -8,18 +8,24 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
+import java.nio.charset.StandardCharsets;
+
 import static Zhenghuo.actions.ChangePlayerAction.ChangePlayer;
+import static com.megacrit.cardcrawl.core.Settings.language;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
 
 
 @SpireInitializer
-public class ExampleMod implements PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
+public class ExampleMod implements EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
 public static String NowPlayer=null;
     public ExampleMod() {
         BaseMod.subscribe(this); // 告诉basemod你要订阅事件
@@ -61,7 +67,23 @@ public static String NowPlayer=null;
         BaseMod.addRelic(new StrongCharacter(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
 
     }
+    @Override
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        String lang = "ENG";
+        if (language == Settings.GameLanguage.ZHS) {
+            lang = "ZHS";
+        }
 
+        String json = Gdx.files.internal("ZhenghuoResources/localization/"+lang+"/keywords.json")
+                .readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                // 这个id要全小写
+                BaseMod.addKeyword("tieba", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }}
     @Override
     public String onSave() {
         System.out.println("正在保存");/*
