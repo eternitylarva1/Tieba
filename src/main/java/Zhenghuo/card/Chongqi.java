@@ -23,6 +23,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static Zhenghuo.relics.StrongCharacter.initizeGame;
+
 public class Chongqi extends AbstractCard {
     public static final String ID = "Chongqi";
     private static final CardStrings cardStrings;
@@ -35,9 +37,7 @@ public class Chongqi extends AbstractCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ShuffleAllAction());
-        this.addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, false));
-        this.addToBot(new DrawCardAction(p, this.magicNumber));
+        initizeGame();
     }
 
     public AbstractCard makeCopy() {

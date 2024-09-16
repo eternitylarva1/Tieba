@@ -3,6 +3,7 @@ package Zhenghuo.modcore;
 import Zhenghuo.card.*;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import Zhenghuo.relics.StrongCharacter;
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
 import basemod.helpers.RelicType;
@@ -34,9 +35,10 @@ public static String NowPlayer=null;
     @Override
     public void receiveEditCards() {
         // TODO 这里写添加你卡牌的代码
-        BaseMod.addCard(new Strike());
-        BaseMod.addCard(new Soul_P());
-        BaseMod.addCard(new Soul_G());
+        new AutoAdd("Tieba") // 这里填写你在ModTheSpire.json中写的modid
+                .packageFilter(Soul_P.class) // 寻找所有和此类同一个包及内部包的类（本例子是所有卡牌）
+                .setDefaultSeen(true) // 是否将卡牌标为可见
+                .cards(); // 开始批量添加卡牌
     }
 
     @Override

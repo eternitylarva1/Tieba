@@ -62,68 +62,71 @@ public class StrongCharacter extends CustomRelic implements ClickableRelic {
 
     @Override
     public void onRightClick() {
-        if(!Settings.isEndless){
-            ExampleMod.NowPlayer = null;
-        }
-        AbstractDungeon.floorNum = 1;
-        AbstractDungeon.actNum=0;
-        player.gold=99;
-        for(int j=0;j<potions.size();j++)
-        {
-            player.potions.set(j,new PotionSlot(j));
-        }
-
-        int i=ascensionLevel;
-        ascensionLevel=1;
-        AbstractDungeon.generateSeeds();
-        CardCrawlGame.dungeon=new Exordium(AbstractDungeon.player,new ArrayList<String>());
-        ascensionLevel=i;
-        player.maxHealth=player.getLoadout().maxHp;
-        if(ascensionLevel >= 14){
-            player.maxHealth-=player.getAscensionMaxHPLoss();
-        }
-        player.currentHealth=player.maxHealth;
-        if(ascensionLevel>=6){
-            player.currentHealth*=0.9f;
-        }
-        CardCrawlGame.music.fadeOutBGM();
-        CardCrawlGame.music.fadeOutTempBGM();
-        AbstractDungeon.fadeOut();
-        AbstractDungeon.topLevelEffects.clear();
-        AbstractDungeon.actionManager.actions.clear();
-        AbstractDungeon.effectList.clear();
-        AbstractDungeon.effectsQueue.clear();
-        (AbstractDungeon.getCurrRoom()).phase = AbstractRoom.RoomPhase.COMPLETE;
-        AbstractDungeon.dungeonMapScreen.open(true);
-       AbstractDungeon.player.masterDeck.group.clear();
-        for (String s : AbstractDungeon.player.getStartingDeck()) {
-            AbstractDungeon.player.masterDeck.addToTop(CardLibrary.getCard(AbstractDungeon.player.chosenClass, s).makeCopy());
-        }
-        if (ascensionLevel >= 10) {
-            player.masterDeck.addToTop(new AscendersBane());
-        }
-
-        Iterator<AbstractRelic> iterator = player.relics.iterator();
-        while (iterator.hasNext()) {
-            AbstractRelic relic = iterator.next();
-            {
-
-                effectList.add(new LoseReliceffect(relic));
-
-            }
-        }
-        AbstractDungeon.floorNum = 0;
-      for(AbstractPotion p: player.potions)
-      {
-          p=new PotionSlot(1);
-      }
-        Settings.hasRubyKey=false;
-        Settings.hasSapphireKey=false;
-        Settings.hasEmeraldKey=false;
-
+initizeGame();
     }
     public void onEnterRoom(AbstractRoom room)
     {
     }
+public static void initizeGame()
+{
+    if(!Settings.isEndless){
+        ExampleMod.NowPlayer = null;
+    }
+    AbstractDungeon.floorNum = 1;
+    AbstractDungeon.actNum=0;
+    player.gold=99;
+    for(int j=0;j< player.potions.size();j++)
+    {
+        player.potions.set(j,new PotionSlot(j));
+    }
 
+    int i=ascensionLevel;
+    ascensionLevel=1;
+    AbstractDungeon.generateSeeds();
+    CardCrawlGame.dungeon=new Exordium(AbstractDungeon.player,new ArrayList<String>());
+    ascensionLevel=i;
+    player.maxHealth=player.getLoadout().maxHp;
+    if(ascensionLevel >= 14){
+        player.maxHealth-=player.getAscensionMaxHPLoss();
+    }
+    player.currentHealth=player.maxHealth;
+    if(ascensionLevel>=6){
+        player.currentHealth*=0.9f;
+    }
+    CardCrawlGame.music.fadeOutBGM();
+    CardCrawlGame.music.fadeOutTempBGM();
+    AbstractDungeon.fadeOut();
+    AbstractDungeon.topLevelEffects.clear();
+    AbstractDungeon.actionManager.actions.clear();
+    AbstractDungeon.effectList.clear();
+    AbstractDungeon.effectsQueue.clear();
+    (AbstractDungeon.getCurrRoom()).phase = AbstractRoom.RoomPhase.COMPLETE;
+    AbstractDungeon.dungeonMapScreen.open(true);
+    AbstractDungeon.player.masterDeck.group.clear();
+    for (String s : AbstractDungeon.player.getStartingDeck()) {
+        AbstractDungeon.player.masterDeck.addToTop(CardLibrary.getCard(AbstractDungeon.player.chosenClass, s).makeCopy());
+    }
+    if (ascensionLevel >= 10) {
+        player.masterDeck.addToTop(new AscendersBane());
+    }
+
+    Iterator<AbstractRelic> iterator = player.relics.iterator();
+    while (iterator.hasNext()) {
+        AbstractRelic relic = iterator.next();
+        {
+
+            effectList.add(new LoseReliceffect(relic));
+
+        }
+    }
+    AbstractDungeon.floorNum = 0;
+    for(AbstractPotion p: player.potions)
+    {
+        p=new PotionSlot(1);
+    }
+    Settings.hasRubyKey=false;
+    Settings.hasSapphireKey=false;
+    Settings.hasEmeraldKey=false;
+
+}
 }
