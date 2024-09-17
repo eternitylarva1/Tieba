@@ -34,7 +34,7 @@ public class Xuyuan extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public Xuyuan() {
-        super("Wish", cardStrings.NAME, "purple/skill/wish", 3, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.NONE);
+        super("Wish", cardStrings.NAME, "purple/skill/wish", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.NONE);
         this.baseDamage = 3;
         this.baseMagicNumber = 25;
         this.magicNumber = 25;
@@ -45,7 +45,7 @@ public class Xuyuan extends AbstractCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         try {
-            Desktop.getDesktop().browse(new URI("https://space.bilibili.com/14064034?spm_id_from=333.337.0.0"));
+            Desktop.getDesktop().browse(new URI("https://www.bilibili.com/video/BV1Mf4y1P7G9/"));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -21,20 +21,44 @@
   "UPGRADE_DESCRIPTION": "重新开始这把游戏"
 },"JianXiao": {
   "NAME": "尖啸",
-  "DESCRIPTION": "你拥有 tieba:开腔的欲望 ",
-  "UPGRADE_DESCRIPTION": "你拥有 tieba:开腔的欲望 "
+  "DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 ",
+  "UPGRADE_DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 "
 },"WeiMi": {
   "NAME": "萎靡",
   "DESCRIPTION": "破损敌人的 tieba:核心 tieba:。 ",
   "UPGRADE_DESCRIPTION": "破损敌人的 tieba:核心 tieba:。"
 },"Shuangchongcunzai": {
   "NAME": "双重存在",
-  "DESCRIPTION": " tieba:夹击 你的敌人",
-  "UPGRADE_DESCRIPTION": " tieba:夹击 你的敌人"
+  "DESCRIPTION": " tieba:夹击 你的敌人 NL 消耗 ",
+  "UPGRADE_DESCRIPTION": " tieba:夹击 你的敌人 NL 消耗 "
 },"Xuyuan": {
   "NAME": "许愿",
-  "DESCRIPTION": "获得星光的指引",
-  "UPGRADE_DESCRIPTION": " 获得星光的指引"
+  "DESCRIPTION": "获得星光的指引 NL 抽一张牌 NL 消耗 ",
+  "UPGRADE_DESCRIPTION": " 获得星光的指引 NL 抽一张牌 NL 消耗 "
+},"Houkongfan": {
+  "NAME": "后空翻",
+  "DESCRIPTION": "向后撤退一个身位，如果退出屏幕，则逃跑",
+  "UPGRADE_DESCRIPTION": " 向后撤退一个身位，如果退出屏幕，则逃跑"
+},"Chongbiancheng": {
+  "NAME": "重编程",
+  "DESCRIPTION": "选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手",
+  "UPGRADE_DESCRIPTION": " 选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手"
+},"Thunderclap": {
+  "NAME": "闪电霹雳",
+  "DESCRIPTION": "每有一个敌人，生成一个 闪电充能球 ",
+  "UPGRADE_DESCRIPTION": "每有一个敌人，生成一个 闪电充能球 "
+},"Yichuan": {
+  "NAME": "遗传算法",
+  "DESCRIPTION": "消耗所有牌，将最近一次胜利的卡组加入抽牌堆 NL 消耗 ",
+  "UPGRADE_DESCRIPTION": "消耗所有牌，将最近一次胜利的卡组加入抽牌堆 NL 消耗 "
+},"Xingyunyiji": {
+  "NAME": "幸运一击",
+  "DESCRIPTION": "消耗一枚古钱币，造成300点伤害。如果没有古钱币则改为失去 !M!金币",
+  "UPGRADE_DESCRIPTION": "消耗一枚古钱币，造成300点伤害。如果没有古钱币则改为失去!M!金币 "
+},"Tengyue": {
+  "NAME": "腾跃",
+  "DESCRIPTION": "咔咔们会认为你是 tieba:觉醒者 tieba:。",
+  "UPGRADE_DESCRIPTION": "咔咔们会认为你是 tieba:觉醒者 tieba:。 "
 }
 
 

@@ -24,7 +24,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.exordium.Cultist;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.RitualPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
@@ -44,31 +46,15 @@ public class JianXiao extends AbstractCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("ATTACK_PIERCING_WAIL"));
+
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CULTIST_1A"));
         AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,AbstractDungeon.player.dialogY,"我的力量无人能及!",true));
         if (Settings.FAST_MODE) {
             this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveType.CHAOTIC), 0.3F));
         } else {
             this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveType.CHAOTIC), 1.5F));
         }
-
-        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-
-        AbstractMonster mo;
-        while(var3.hasNext()) {
-            mo = (AbstractMonster)var3.next();
-            this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber), -this.magicNumber, true, AttackEffect.NONE));
-        }
-
-        var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-
-        while(var3.hasNext()) {
-            mo = (AbstractMonster)var3.next();
-            if (!mo.hasPower("Artifact")) {
-                this.addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber), this.magicNumber, true, AttackEffect.NONE));
-            }
-        }
-
+AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RitualPower(p,1,true)));
     }
 
     public void upgrade() {

@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.nio.charset.StandardCharsets;
@@ -86,18 +87,9 @@ public static String NowPlayer=null;
         }}
     @Override
     public String onSave() {
-        System.out.println("正在保存");/*
+        System.out.println("正在保存");
         ChangePlayer(NowPlayer);
-        for (RewardItem reward : getCurrRoom().rewards) {
-            System.out.println("替换中");
-            if (reward.type == RewardItem.RewardType.CARD) {
-                System.out.println("已执行替换");
-                reward.cards = AbstractDungeon.getRewardCards();
-
-
-            }
-        }*/
-            return NowPlayer;
+     return NowPlayer;
 
     }
     @Override

@@ -10,6 +10,7 @@ import Zhenghuo.otherplayer.AbstractOtherPlayer;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.unique.DoppelgangerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
         import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,7 +40,9 @@ public class Shuangchongcunzai extends AbstractCard {
                         AbstractMonster m=new AbstractOtherPlayer(AbstractDungeon.player.getClass().getSimpleName());
 AbstractMonster am=AbstractDungeon.getCurrRoom().monsters.monsters.get(AbstractDungeon.getCurrRoom().monsters.monsters.size()-1);
                         m.drawX=am.drawX+am.hb_w/2+m.hb_w/2;
-addToBot(new ApplyPowerAction(am,p,new SurroundedPower(am)));
+                        for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                            addToBot(new ApplyPowerAction(am,p,new SurroundedPower(m)));
+                        }
 
                        // addToBot(new ApplyPowerAction(m,p,new BackAttackPower(m)));
                         OtherPlayerHelper.addMinion(AbstractDungeon.player,m);

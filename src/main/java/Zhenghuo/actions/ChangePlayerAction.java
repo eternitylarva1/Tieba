@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbGreen;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbPurple;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbRed;
 
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -37,18 +38,29 @@ public ChangePlayerAction(String Player)
     public static void ChangePlayerPool(String Player)
     {
         if(Player!=null){
-        switch (Player){
-            case"Defect":
-                commonCardPool.clear();
-                uncommonCardPool.clear();
-                rareCardPool.clear();
-                srcCommonCardPool.clear();
-                srcUncommonCardPool.clear();
-                srcRareCardPool.clear();
-                ArrayList<AbstractCard> tmpPool = new ArrayList<AbstractCard>();
+            commonCardPool.clear();
+            uncommonCardPool.clear();
+            rareCardPool.clear();
+            srcCommonCardPool.clear();
+            srcUncommonCardPool.clear();
+            srcRareCardPool.clear();
+            ArrayList<AbstractCard> tmpPool = new ArrayList<AbstractCard>();
+        switch (Player) {
+            case "Defect":
                 CardLibrary.addBlueCards(tmpPool);
+                break;
+            case "Ironclad":
+                CardLibrary.addRedCards(tmpPool);
+                break;
+            case "TheSilent":
+                CardLibrary.addGreenCards(tmpPool);
+                break;
+            case "Watcher":
+                CardLibrary.addPurpleCards(tmpPool);
+                break;
+        }
                 Iterator var4 = tmpPool.iterator();
-                System.out.println("已将角色改为鸡煲");
+                System.out.println("已将角色改为"+player);
                 AbstractCard c;
                 while(var4.hasNext()) {
                     c = (AbstractCard) var4.next();
@@ -73,7 +85,7 @@ public ChangePlayerAction(String Player)
                             System.out.println("Unspecified rarity: " + c.rarity.name() + " when creating pools! AbstractDungeon: Line 827");
 
                     }}
-    }}
+    }
     }
     public static void ChangePlayerSkin(String Player)
     { switch (Player) {
@@ -114,13 +126,17 @@ public ChangePlayerAction(String Player)
         ChangePlayerSkin(Player);
         switch (Player) {
             case"Ironclad":
-
+                player.shoulderImg = ImageMaster.loadImage("images/characters/ironclad/shoulder2.png");
+                player.shoulder2Img = ImageMaster.loadImage("images/characters/ironclad/shoulder.png");
+                player.corpseImg = ImageMaster.loadImage("images/characters/ironclad/corpse.png");
                 Invoker.setField(topPanel, "title", Ironclad.NAMES[0]);
                 Invoker.setField(player, "energyOrb", new EnergyOrbRed());
                 ChangePlayerPool(Player);
                 break;
             case"TheSilent":
-
+                player.shoulderImg = ImageMaster.loadImage("images/characters/theSilent/shoulder2.png");
+                player.shoulder2Img = ImageMaster.loadImage("images/characters/theSilent/shoulder.png");
+                player.corpseImg = ImageMaster.loadImage("images/characters/theSilent/corpse.png");
                 Invoker.setField(topPanel, "title", TheSilent.NAMES[0]);
                 Invoker.setField(player, "energyOrb", new EnergyOrbGreen());
                 ChangePlayerPool(Player);
@@ -136,6 +152,9 @@ public ChangePlayerAction(String Player)
                 break;
             case"Watcher":
 
+                player.shoulderImg = ImageMaster.loadImage("images/characters/watcher/shoulder2.png");
+                player.shoulder2Img = ImageMaster.loadImage("images/characters/watcher/shoulder.png");
+                player.corpseImg = ImageMaster.loadImage("images/characters/watcher/corpse.png");
                 Invoker.setField(topPanel, "title", Watcher.NAMES[0]);
                 Invoker.setField(player, "energyOrb", new EnergyOrbPurple());
                 ChangePlayerPool(Player);
