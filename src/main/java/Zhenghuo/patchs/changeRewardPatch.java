@@ -9,9 +9,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.SurroundedPower;
 import com.megacrit.cardcrawl.screens.CombatRewardScreen;
+import com.megacrit.cardcrawl.screens.custom.CustomModeScreen;
 
 import static Zhenghuo.actions.ChangePlayerAction.ChangePlayer;
 import static Zhenghuo.modcore.ExampleMod.NowPlayer;
+import static Zhenghuo.modcore.ExampleMod.morengcharacter;
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 
 public class changeRewardPatch {
@@ -47,6 +50,22 @@ public class changeRewardPatch {
          else {
              return SpireReturn.Continue();
          }
+        }
+    }
+    @SpirePatch(
+            cls = "com.megacrit.cardcrawl.screens.custom.CustomModeScreen",
+            method = "initializeCharacters"
+    )
+    public static class InitizePatch {
+        @SpireInsertPatch(
+                rloc =0
+        )
+        public static SpireReturn Insert(CustomModeScreen __instance) {
+            if(morengcharacter!=null&&player!=null){
+                player.chosenClass = morengcharacter;
+            }
+
+            return SpireReturn.Continue();
         }
     }
 }

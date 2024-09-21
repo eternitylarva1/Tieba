@@ -11,7 +11,9 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
@@ -28,6 +30,7 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
 @SpireInitializer
 public class ExampleMod implements EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
 public static String NowPlayer=null;
+
     public ExampleMod() {
         BaseMod.subscribe(this); // 告诉basemod你要订阅事件
         BaseMod.addSaveField("Tieba", this);
@@ -85,6 +88,7 @@ public static String NowPlayer=null;
                 BaseMod.addKeyword("tieba", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
             }
         }}
+    public static AbstractPlayer.PlayerClass morengcharacter;
     @Override
     public String onSave() {
         System.out.println("正在保存");
@@ -123,6 +127,8 @@ public static String NowPlayer=null;
     public void receivePostDungeonInitialize() {
         if(!Settings.isEndless){
             NowPlayer = null;
+            morengcharacter=player.chosenClass;
         }
+
     }
 }
