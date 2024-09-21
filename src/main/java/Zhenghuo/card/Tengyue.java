@@ -48,13 +48,9 @@ public class Tengyue extends AbstractCard {
           @Override
           public void update() {
               for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                  if(Objects.equals(monster.id, Cultist.ID) || Objects.equals(m.id, Chosen.ID))
-                  {
-                      if(!m.hasPower(SurroundedPower.POWER_ID)) {
+                  if(monster.id!=null){
+                      if (Objects.equals(monster.id, Cultist.ID) || Objects.equals(monster.id, Chosen.ID)) {
                           addToTop(new EscapeAction(monster));
-                      }
-                      else{
-                          addToTop(new TalkAction(m,"我被夹击了无法逃跑"));
                       }
                   }
               }

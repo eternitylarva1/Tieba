@@ -1,5 +1,6 @@
 package Zhenghuo.card;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.purple.Wish;
 
 //
@@ -49,6 +50,7 @@ public class Xuyuan extends AbstractCard {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        addToBot(new DrawCardAction(1));
     }
 
     public void applyPowers() {

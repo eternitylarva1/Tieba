@@ -11,7 +11,9 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
@@ -88,13 +90,13 @@ public static String NowPlayer=null;
     @Override
     public String onSave() {
         System.out.println("正在保存");
-        ChangePlayer(NowPlayer);
+      ChangePlayer(NowPlayer);
      return NowPlayer;
 
     }
     @Override
     public void onLoad(String s) {
-
+        OtherPlayerHelper.clearMinions(player);
         NowPlayer=s;
         System.out.println("成功加载");
         ChangePlayer(NowPlayer);
@@ -113,7 +115,7 @@ public static String NowPlayer=null;
 
 
     }
-
+    public static AbstractPlayer.PlayerClass InitialPlayerclass=null;
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         OtherPlayerHelper.clearMinions(player);
@@ -124,5 +126,6 @@ public static String NowPlayer=null;
         if(!Settings.isEndless){
             NowPlayer = null;
         }
+        InitialPlayerclass=player.chosenClass;
     }
 }

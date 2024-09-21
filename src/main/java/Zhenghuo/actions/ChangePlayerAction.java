@@ -3,10 +3,8 @@ package Zhenghuo.actions;
 import Zhenghuo.utils.Invoker;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.Defect;
-import com.megacrit.cardcrawl.characters.Ironclad;
-import com.megacrit.cardcrawl.characters.TheSilent;
-import com.megacrit.cardcrawl.characters.Watcher;
+import com.megacrit.cardcrawl.characters.*;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
@@ -55,12 +53,13 @@ public ChangePlayerAction(String Player)
             case "TheSilent":
                 CardLibrary.addGreenCards(tmpPool);
                 break;
+
             case "Watcher":
                 CardLibrary.addPurpleCards(tmpPool);
                 break;
         }
                 Iterator var4 = tmpPool.iterator();
-                System.out.println("已将角色改为"+player);
+                System.out.println("已将角色改为"+Player);
                 AbstractCard c;
                 while(var4.hasNext()) {
                     c = (AbstractCard) var4.next();
@@ -92,18 +91,22 @@ public ChangePlayerAction(String Player)
         case"Ironclad":
             Invoker.invoke(player, "loadAnimation","images/characters/ironclad/idle/skeleton.atlas", "images/characters/ironclad/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
-    break;
+            //player.chosenClass= AbstractPlayer.PlayerClass.IRONCLAD;
+            break;
         case"TheSilent":
             Invoker.invoke(player, "loadAnimation", "images/characters/theSilent/idle/skeleton.atlas", "images/characters/theSilent/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
+            //player.chosenClass= AbstractPlayer.PlayerClass.THE_SILENT;
             break;
         case "Defect":
             Invoker.invoke(player, "loadAnimation", "images/characters/defect/idle/skeleton.atlas", "images/characters/defect/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
+            //player.chosenClass= AbstractPlayer.PlayerClass.DEFECT;
             break;
         case"Watcher":
             Invoker.invoke(player, "loadAnimation", "images/characters/watcher/idle/skeleton.atlas", "images/characters/watcher/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
+            //player.chosenClass= AbstractPlayer.PlayerClass.WATCHER;
             break;
     }
     ///public static void ChangePlayerSkin(String Player)
@@ -123,7 +126,6 @@ public ChangePlayerAction(String Player)
     }
     public static void ChangePlayer(String Player)
     {if(Player!=null) {
-        ChangePlayerSkin(Player);
         switch (Player) {
             case"Ironclad":
                 player.shoulderImg = ImageMaster.loadImage("images/characters/ironclad/shoulder2.png");

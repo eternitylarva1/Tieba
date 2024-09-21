@@ -1,6 +1,7 @@
 package Zhenghuo.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.blue.Reboot;
 
 //
@@ -18,6 +19,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.red.Feed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,7 +40,15 @@ public class Chongqi extends AbstractCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        initizeGame();
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+
+                initizeGame();
+                isDone=true;
+            }
+        });
+
     }
 
     public AbstractCard makeCopy() {

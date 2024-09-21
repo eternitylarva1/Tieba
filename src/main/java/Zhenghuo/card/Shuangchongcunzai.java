@@ -28,7 +28,7 @@ public class Shuangchongcunzai extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public Shuangchongcunzai() {
-        super("Shuangchongcunzai", cardStrings.NAME, "green/skill/doppelganger", -1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.RARE, CardTarget.SELF);
+        super("Shuangchongcunzai", cardStrings.NAME, "green/skill/doppelganger", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
     }
 
@@ -41,7 +41,7 @@ public class Shuangchongcunzai extends AbstractCard {
 AbstractMonster am=AbstractDungeon.getCurrRoom().monsters.monsters.get(AbstractDungeon.getCurrRoom().monsters.monsters.size()-1);
                         m.drawX=am.drawX+am.hb_w/2+m.hb_w/2;
                         for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                            addToBot(new ApplyPowerAction(am,p,new SurroundedPower(m)));
+                            addToBot(new ApplyPowerAction(monster,p,new SurroundedPower(monster)));
                         }
 
                        // addToBot(new ApplyPowerAction(m,p,new BackAttackPower(m)));

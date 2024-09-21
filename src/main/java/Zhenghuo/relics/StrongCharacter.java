@@ -68,7 +68,9 @@ initizeGame();
     {
     }
 public static void initizeGame()
+
 {
+    AbstractDungeon.getCurrRoom().monsters.monsters.clear();
     if(!Settings.isEndless){
         ExampleMod.NowPlayer = null;
     }
@@ -84,15 +86,7 @@ public static void initizeGame()
     ascensionLevel=1;
     AbstractDungeon.generateSeeds();
     CardCrawlGame.dungeon=new Exordium(AbstractDungeon.player,new ArrayList<String>());
-    ascensionLevel=i;
-    player.maxHealth=player.getLoadout().maxHp;
-    if(ascensionLevel >= 14){
-        player.maxHealth-=player.getAscensionMaxHPLoss();
-    }
-    player.currentHealth=player.maxHealth;
-    if(ascensionLevel>=6){
-        player.currentHealth*=0.9f;
-    }
+
     CardCrawlGame.music.fadeOutBGM();
     CardCrawlGame.music.fadeOutTempBGM();
     AbstractDungeon.fadeOut();
@@ -127,6 +121,15 @@ public static void initizeGame()
     Settings.hasRubyKey=false;
     Settings.hasSapphireKey=false;
     Settings.hasEmeraldKey=false;
+    ascensionLevel=i;
+    player.maxHealth=player.getLoadout().maxHp;
+    if(ascensionLevel >= 14){
+        player.maxHealth-=player.getAscensionMaxHPLoss();
+    }
+    player.currentHealth=player.maxHealth;
+    if(ascensionLevel>=6){
+        player.currentHealth*=0.9f;
+    }
 
 }
 }

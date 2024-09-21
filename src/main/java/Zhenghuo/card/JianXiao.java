@@ -1,6 +1,8 @@
 package Zhenghuo.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.animations.ShoutAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.cards.green.PiercingWail;
 
 //
@@ -28,6 +30,7 @@ import com.megacrit.cardcrawl.monsters.exordium.Cultist;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.RitualPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.MegaSpeechBubble;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect.ShockWaveType;
@@ -48,7 +51,9 @@ public class JianXiao extends AbstractCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CULTIST_1A"));
-        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,AbstractDungeon.player.dialogY,"我的力量无人能及!",true));
+        AbstractDungeon.effectList.add(new MegaSpeechBubble(p.dialogX, p.dialogY, 2.0F,"我的力量无人能及！",true));
+
+        //AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,AbstractDungeon.player.dialogY,"我的力量无人能及!",true));
         if (Settings.FAST_MODE) {
             this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveType.CHAOTIC), 0.3F));
         } else {
