@@ -34,7 +34,7 @@ public class Houkongfan extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public Houkongfan() {
-        super("Houkongfan", cardStrings.NAME, "green/skill/backflip", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.SELF);
+        super("Backflip", cardStrings.NAME, "green/skill/backflip", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.SELF);
         this.baseBlock = 5;
     }
 

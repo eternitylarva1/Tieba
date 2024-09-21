@@ -38,7 +38,7 @@ public class JianXiao extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public JianXiao() {
-        super(ID, cardStrings.NAME,"green/skill/piercing_wail", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super("PiercingWail", cardStrings.NAME,"green/skill/piercing_wail", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         this.exhaust = true;
         this.baseMagicNumber = 6;
         this.magicNumber = this.baseMagicNumber;

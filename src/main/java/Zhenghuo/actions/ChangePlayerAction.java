@@ -4,8 +4,10 @@ import Zhenghuo.utils.Invoker;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.*;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbGreen;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbPurple;
@@ -90,21 +92,28 @@ public ChangePlayerAction(String Player)
             Invoker.invoke(player, "loadAnimation","images/characters/ironclad/idle/skeleton.atlas", "images/characters/ironclad/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
             player.chosenClass = AbstractPlayer.PlayerClass.IRONCLAD;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.RED_ORB_FLASH_VFX);
+
     break;
         case"TheSilent":
             Invoker.invoke(player, "loadAnimation", "images/characters/theSilent/idle/skeleton.atlas", "images/characters/theSilent/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
             player.chosenClass = AbstractPlayer.PlayerClass.THE_SILENT;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.GREEN_ORB_FLASH_VFX);
             break;
         case "Defect":
             Invoker.invoke(player, "loadAnimation", "images/characters/defect/idle/skeleton.atlas", "images/characters/defect/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
             player.chosenClass = AbstractPlayer.PlayerClass.DEFECT;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.BLUE_ORB_FLASH_VFX);
+
             break;
         case"Watcher":
             Invoker.invoke(player, "loadAnimation", "images/characters/watcher/idle/skeleton.atlas", "images/characters/watcher/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
             player.chosenClass = AbstractPlayer.PlayerClass.WATCHER;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.PURPLE_ORB_FLASH_VFX);
+
             break;
     }
     ///public static void ChangePlayerSkin(String Player)
