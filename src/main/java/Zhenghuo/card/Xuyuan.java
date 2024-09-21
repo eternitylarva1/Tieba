@@ -1,5 +1,6 @@
 package Zhenghuo.card;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.purple.Wish;
 
 //
@@ -21,8 +22,10 @@ import com.megacrit.cardcrawl.cards.optionCards.FameAndFortune;
 import com.megacrit.cardcrawl.cards.optionCards.LiveForever;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.awt.*;
 import java.net.URI;
@@ -44,10 +47,12 @@ public class Xuyuan extends AbstractCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new DrawCardAction(1));
         try {
             Desktop.getDesktop().browse(new URI("https://www.bilibili.com/video/BV1Mf4y1P7G9/"));
         } catch (Exception e) {
             e.printStackTrace();
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,AbstractDungeon.player.dialogY,"我没有权限打开浏览器",true));
         }
     }
 

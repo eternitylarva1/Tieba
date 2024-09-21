@@ -35,21 +35,21 @@ public class Reprogram extends AbstractCard {
     public String player="";
 
     public Reprogram() {
-        super("Reprogram", cardStrings.NAME, "blue/skill/reprogram", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, cardStrings.NAME, "blue/skill/reprogram", 2, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.NONE);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
     public Reprogram(String player) {
-        super("Reprogram", cardStrings.NAME, "blue/skill/reprogram", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.NONE);
+        super("Reprogram", cardStrings.NAME, "blue/skill/reprogram", 2, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.NONE);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         switch (player){
             case"Ironclad":
-                addToBot(new ChangePlayerAction("Ironclad"));
+                //addToBot(new ChangePlayerAction("Ironclad"));
                 this.rawDescription="变成铁甲战士";
                 break;
             case"TheSilent":
-                addToBot(new ChangePlayerAction("TheSilent"));
+                //addToBot(new ChangePlayerAction("TheSilent"));
                 this.rawDescription="变成静默猎手";
                 break;
         }
@@ -72,7 +72,7 @@ public class Reprogram extends AbstractCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(1);
         }
 
     }

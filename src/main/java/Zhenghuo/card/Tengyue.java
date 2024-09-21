@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.city.Byrd;
 import com.megacrit.cardcrawl.monsters.city.Chosen;
 import com.megacrit.cardcrawl.monsters.exordium.Cultist;
 import com.megacrit.cardcrawl.powers.SurroundedPower;
@@ -48,13 +49,15 @@ public class Tengyue extends AbstractCard {
           @Override
           public void update() {
               for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                  if(Objects.equals(monster.id, Cultist.ID) || Objects.equals(m.id, Chosen.ID))
-                  {
-                      if(!m.hasPower(SurroundedPower.POWER_ID)) {
-                          addToTop(new EscapeAction(monster));
-                      }
-                      else{
-                          addToTop(new TalkAction(m,"我被夹击了无法逃跑"));
+                  if(monster.id!=null){
+                      if (Objects.equals(monster.id, Cultist.ID) || Objects.equals(monster.id, Chosen.ID)|| Objects.equals(monster.id, Byrd.ID)) {
+                          if (!monster.hasPower(SurroundedPower.POWER_ID)) {
+                              addToTop(new EscapeAction(monster));
+                              addToTop(new TalkAction(monster, "是觉醒者，快跑呀！！"));
+
+                          } else {
+                              addToTop(new TalkAction(monster, "我被夹击了无法逃跑"));
+                          }
                       }
                   }
               }

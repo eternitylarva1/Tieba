@@ -59,7 +59,9 @@ public class ThunderClap extends AbstractCard {
         while(var3.hasNext()) {
             mo = (AbstractMonster)var3.next();
             if (!mo.isDeadOrEscaped()) {
-
+if(this.upgraded){
+    this.addToBot(new ChannelAction(new Lightning()));
+}
                 this.addToBot(new ChannelAction(new Lightning()));
             }
         }
@@ -70,7 +72,7 @@ public class ThunderClap extends AbstractCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
+            this.upgradeMagicNumber(2);
         }
 
     }

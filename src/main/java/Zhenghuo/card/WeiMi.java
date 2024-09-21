@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.monsters.city.BronzeOrb;
 import com.megacrit.cardcrawl.monsters.city.SphericGuardian;
 import com.megacrit.cardcrawl.monsters.exordium.Sentry;
 import com.megacrit.cardcrawl.monsters.exordium.TheGuardian;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.util.Iterator;
 
@@ -48,6 +49,8 @@ public class WeiMi extends AbstractCard {
             public void update() {
                 if(isMachine(m)) {
                     addToBot(new InstantKillAction(m));
+                }else{
+                    AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX,p.dialogY,"目标不是机械",true));
                 }
                     this.isDone=true;
             }
@@ -76,6 +79,7 @@ public class WeiMi extends AbstractCard {
             this.upgradeName();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.upgradeBaseCost(2);
         }
 
     }

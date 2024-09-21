@@ -54,6 +54,8 @@ public class JustLucky extends AbstractCard {
                 AbstractDungeon.player.loseGold(magicNumber);
 
             }
+        }else{
+
         }
     }
     public void triggerOnGlowCheck() {

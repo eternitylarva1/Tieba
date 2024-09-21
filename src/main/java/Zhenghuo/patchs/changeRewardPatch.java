@@ -45,6 +45,7 @@ public class changeRewardPatch {
         public static SpireReturn Insert(EscapeAction __instance) {
          if(__instance.source.hasPower(SurroundedPower.POWER_ID)) {
              AbstractDungeon.actionManager.addToBottom(new TalkAction(__instance.source,"我被包围了，无法逃跑"));
+             __instance.isDone=true;
              return SpireReturn.Return();
          }
          else {
