@@ -1,27 +1,11 @@
 package Zhenghuo.card;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.EscapeAction;
-import com.megacrit.cardcrawl.cards.blue.Loop;
-import com.megacrit.cardcrawl.cards.green.Backstab;
-import com.megacrit.cardcrawl.cards.purple.Vault;
-
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
-
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
-import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -35,12 +19,12 @@ import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 import java.util.Objects;
 
-public class Tengyue extends AbstractCard {
-    public static final String ID = "Tengyue";
+public class baoxue extends AbstractCard {
+    public static final String ID = "Blizzard";
     private static final CardStrings cardStrings;
 
-    public Tengyue() {
-        super("Tengyue", cardStrings.NAME, "purple/skill/vault", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.ALL);
+    public baoxue() {
+        super("Blizzard", cardStrings.NAME, "blue/attack/blizzard", 1, cardStrings.DESCRIPTION, CardType.POWER, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);
         this.exhaust = true;
     }
 
@@ -72,16 +56,17 @@ public class Tengyue extends AbstractCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(2);
+     this.rawDescription=cardStrings.UPGRADE_DESCRIPTION;
+     initializeDescription();
         }
 
     }
 
     public AbstractCard makeCopy() {
-        return new Tengyue();
+        return new baoxue();
     }
 
     static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings("Tengyue");
+        cardStrings = CardCrawlGame.languagePack.getCardStrings("Blizzard");
     }
 }

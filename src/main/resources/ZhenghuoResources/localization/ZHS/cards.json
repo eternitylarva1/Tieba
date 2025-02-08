@@ -19,7 +19,62 @@
   "NAME": "重启",
   "DESCRIPTION": "重新开始这把游戏",
   "UPGRADE_DESCRIPTION": "重新开始这把游戏"
-},"JianXiao": {
+},"Feel No Pain": {
+  "NAME": "无惧疼痛",
+  "DESCRIPTION": "本回合，删除你的受伤动画",
+  "UPGRADE_DESCRIPTION": "本回合，删除你的受伤动画 NL 保留",
+  "FLAVOR": "因为动画大于一切，所以没有受伤动画=不会受伤"
+},
+  "Calculated Gamble": {
+    "NAME": "计算下注",
+    "DESCRIPTION": "弃掉所有牌。你必须在5秒内做一道算术题（三选一）。 NL 如果答对了可以抽弃掉牌数+1的牌，答错或没回答则抽1张牌",
+    "UPGRADE_DESCRIPTION": "弃掉所有牌。你必须在10秒内做一道算术题（三选一）。NL 如果答对了可以抽弃掉牌数+1的牌，答错或没回答则抽2张牌",
+    "FLAVOR": "Baka!Baka!"
+  }, "Backstab": {
+    "NAME": "背刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 如果敌人被你 tieba:夹击 ，将其击杀",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 如果敌人被 tieba:夹击 ，将其击杀",
+    "FLAVOR": "当敌人自以为安全时，我的匕首已经划破了他们的咽喉。"
+  },"AscendersBane": {
+  "NAME": "进阶之灾",
+  "DESCRIPTION": "加入卡组时，将进阶数+1 NL 虚无 NL 不能打出",
+  "UPGRADE_DESCRIPTION": "加入卡组时，将进阶数+2 NL 虚无 NL 不能打出",
+  "FLAVOR": "我玩的不是a19吗？怎么有两个boss？。"
+},"Doubt": {
+  "NAME": "疑虑",
+  "DESCRIPTION": "在手牌时，每次出牌之前都需要确认 NL 不能被打出",
+  "UPGRADE_DESCRIPTION": "在手牌时，每次出牌之前都需要确认 NL 无法逃脱",
+  "FLAVOR": "我到底是先上刀还是先喝酒？"
+},
+  "Concentrate": {
+  "NAME": "全神贯注",
+  "DESCRIPTION": "丢弃 !M! 张牌 NL 获得2点 集中 ",
+  "UPGRADE_DESCRIPTION": "丢弃 !M! 张牌 NL 获得2点 集中 ",
+  "FLAVOR": "这张牌为什么是绿卡？"
+},
+  "Blood for Blood": {
+    "NAME": "以血还血",
+    "DESCRIPTION": "受到伤害时，对所有敌人造成等量伤害",
+    "UPGRADE_DESCRIPTION": "受到伤害时，对所有敌人造成双倍伤害",
+    "FLAVOR": "哪个敢动我！ 伤我者，十倍奉还！"
+  },"Blizzard": {
+    "NAME": "暴雪",
+    "DESCRIPTION": "所有角色动画和技能特效在触发时随机出现延迟（0.5～1 秒）",
+    "UPGRADE_DESCRIPTION": "所有角色动画和技能特效在触发时随机出现延迟（1～1.5 秒）",
+    "FLAVOR": "这个机器人装载了暴雪的服务器"
+  },"Buffer": {
+  "NAME": "缓冲",
+  "DESCRIPTION": "阻止下一次你受到的生命值损伤。本卡在卡组中时，你在坠落事件中优先失去这张牌",
+  "UPGRADE_DESCRIPTION": "阻止下两次你受到的生命值损伤。本卡在卡组中时，你在坠落事件中优先失去这张牌",
+  "FLAVOR": "别摔我的回想形态！！"
+},"AugrmentAttack": {
+  "NAME": "选项",
+  "DESCRIPTION": "",
+  "UPGRADE_DESCRIPTION": "",
+  "FLAVOR": ""
+},
+
+  "JianXiao": {
   "NAME": "尖啸",
   "DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 ",
   "UPGRADE_DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 "
@@ -53,12 +108,12 @@
   "UPGRADE_DESCRIPTION": "消耗所有牌，将最近一次胜利的卡组加入抽牌堆 NL 消耗 "
 },"Xingyunyiji": {
   "NAME": "幸运一击",
-  "DESCRIPTION": "消耗一枚古钱币，造成300点伤害。如果没有古钱币则改为失去 !M!金币",
-  "UPGRADE_DESCRIPTION": "消耗一枚古钱币，造成300点伤害。如果没有古钱币则改为失去!M!金币 "
+  "DESCRIPTION": "造成 !D! 点伤害，50%概率额外打出一张本牌的复制",
+  "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，50%概率额外打出一张本牌的复制"
 },"Tengyue": {
   "NAME": "腾跃",
-  "DESCRIPTION": "咔咔们会认为你是 tieba:觉醒者 tieba:。",
-  "UPGRADE_DESCRIPTION": "咔咔们会认为你是 tieba:觉醒者 tieba:。 "
+  "DESCRIPTION": "绕到敌人背后，获得一个新的回合",
+  "UPGRADE_DESCRIPTION": "绕到敌人背后，获得一个新的回合"
 }
 
 
