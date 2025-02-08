@@ -87,7 +87,16 @@ public ChangePlayerAction(String Player)
     }
     }
     public static void ChangePlayerSkin(String Player)
-    { switch (Player) {
+    {  if (player == null) {
+        System.err.println("Error: player is null");
+        return;
+    }
+        if (overlayMenu == null || overlayMenu.energyPanel != null) {
+        return;
+        }
+
+            switch (Player) {
+
         case"Ironclad":
             Invoker.invoke(player, "loadAnimation","images/characters/ironclad/idle/skeleton.atlas", "images/characters/ironclad/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);

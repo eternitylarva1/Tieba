@@ -1,5 +1,6 @@
 package Zhenghuo.card;
 
+import Zhenghuo.actions.DiscoveryAction1;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
@@ -30,17 +31,18 @@ public class jisuanxiazhu extends AbstractCard {
     public jisuanxiazhu() {
         super("Calculated Gamble", cardStrings.NAME, "green/skill/calculated_gamble", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.NONE);
         this.exhaust = true;
+        this.magicNumber=1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DiscardAction(p,p,100,true));
-
+AbstractDungeon.actionManager.addToBottom(new DiscoveryAction1(false,1));
 
     }
 
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.magicNumber+=1;
      this.rawDescription=cardStrings.UPGRADE_DESCRIPTION;
      initializeDescription();
         }

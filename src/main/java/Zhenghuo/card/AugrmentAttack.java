@@ -29,12 +29,12 @@ public class AugrmentAttack extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public AugrmentAttack(String description,int num) {
+    public AugrmentAttack(String description) {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, description, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
       this.damage=this.baseDamage=16;
 
-        Texture customTexture = TextImageGenerator.getTextImage(NAME,this.type);;
+        Texture customTexture = TextImageGenerator.getTextImage(description,this.type);;
 
 // Step 2: 将Texture转换为TextureAtlas.AtlasRegion
         TextureAtlas.AtlasRegion customRegion = new TextureAtlas.AtlasRegion(customTexture, 0, 0, customTexture.getWidth(), customTexture.getHeight());
@@ -47,7 +47,7 @@ public class AugrmentAttack extends CustomCard {
     }
     //无参构造
     public AugrmentAttack() {
-        this(DESCRIPTION,0);
+        this(DESCRIPTION);
     }
 
     @Override
