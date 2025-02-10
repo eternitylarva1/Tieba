@@ -9,26 +9,35 @@ import basemod.abstracts.CustomSavable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import extendedui.EUIRM;
+import extendedui.ui.controls.EUITextBoxInput;
+import extendedui.ui.hitboxes.EUIHitbox;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import static Zhenghuo.actions.ChangePlayerAction.ChangePlayer;
 import static com.megacrit.cardcrawl.core.Settings.language;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
+import static extendedui.ui.EUIBase.scale;
 
 
 @SpireInitializer
-public class ExampleMod implements EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
+public class ExampleMod implements OnPlayerTurnStartSubscriber,EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
 public static String NowPlayer=null;
 
     public ExampleMod() {
@@ -130,5 +139,26 @@ public static String NowPlayer=null;
             morengcharacter=player.chosenClass;
         }
 
+    }
+public static ArrayList<EUITextBoxInput> UITorenders = new ArrayList<>();
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        if(GameActionManager.turn==1){
+            for (AbstractMonster monster : getCurrRoom().monsters.monsters) {
+                 final EUITextBoxInput descriptionInput;
+                descriptionInput=(EUITextBoxInput) new EUITextBoxInput(EUIRM.images.rectangularButton.texture(),
+                        new EUIHitbox(0, 0, scale(360), scale(40)).setIsPopupCompatible(true))
+                        .setHeader(FontHelper.topPanelAmountFont, 0.8f, Settings.GOLD_COLOR, EUIRM.strings.ui_descriptionSearch)
+                        .setHeaderSpacing(1f)
+                        .setColors(Color.GRAY, Settings.CREAM_COLOR)
+                        .setAlignment(0.5f, 0.1f)
+                        .setFont(FontHelper.cardDescFont_N, 0.8f)
+                        .setBackgroundTexture(EUIRM.images.rectangularButton.texture());
+
+            }
+
+
+
+        }
     }
 }

@@ -38,7 +38,8 @@ public class Calculate {
                 break;
             case 3:
                 num2 = random.nextInt(20) + 1; // Ensure num2 is not zero
-                num1 = (num2 * random.nextInt(20)) + 1; // Ensure num1 is a multiple of num2 and not zero
+                int multiplier = random.nextInt(20) + 1; // Ensure multiplier is not zero
+                num1 = num2 * multiplier; // Ensure num1 is a multiple of num2
                 answer = num1 / num2;
                 operator = '/';
                 break;

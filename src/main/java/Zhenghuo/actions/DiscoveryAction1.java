@@ -8,10 +8,12 @@ package Zhenghuo.actions;
 
 
 import Zhenghuo.card.AugrmentAttack;
+import Zhenghuo.effects.Clockeffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.unique.CalculatedGambleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -30,6 +32,14 @@ public class DiscoveryAction1 extends AbstractGameAction {
     private boolean retrieveCard = false;
     private boolean returnColorless = false;
     private AbstractCard.CardType cardType = null;
+    private boolean hasquestion = false;
+    ArrayList generatedCards;
+    Object[] question = new Object[0];
+    AugrmentAttack correctAnswer;
+
+    AugrmentAttack distractor1 ;
+
+    AugrmentAttack distractor2 ;
 
     public DiscoveryAction1() {
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -52,24 +62,38 @@ public class DiscoveryAction1 extends AbstractGameAction {
     }
 
     public void update() {
-        ArrayList generatedCards;
-        Object[] question =generateMathQuestion();
+
+        if(!this.hasquestion) {
+            question= generateMathQuestion();
 //生成三个AugrmentAttack对象，参数分别是qustion的答案，和两个干扰项的答案,
-        Object[] distractors = generateDistractors(question);
-        generatedCards=new ArrayList<AbstractCard>();
-        //用三个变量把这三个对象储存起来
-        AugrmentAttack correctAnswer = new AugrmentAttack((Integer.toString( (Integer) question[2])));
-        AugrmentAttack distractor1 = new AugrmentAttack(Integer.toString((Integer) distractors[0]));
-        AugrmentAttack distractor2 = new AugrmentAttack(Integer.toString((Integer) distractors[1]));
-        generatedCards.add(correctAnswer);
-        generatedCards.add(distractor1);
-        generatedCards.add(distractor2);
+            Object[] distractors = generateDistractors(question);
+            generatedCards = new ArrayList<AbstractCard>();
+            //用三个变量把这三个对象储存起来
+
+
+            System.out.println(String.valueOf(question[2]) + "是正确答案");
+            System.out.println(String.valueOf(distractors[0]) + "是干扰1");
+            System.out.println(String.valueOf(distractors[1]) + "是干扰2");
+            correctAnswer = new AugrmentAttack(String.valueOf(question[2]));
+            distractor1 = new AugrmentAttack(String.valueOf(distractors[0]));
+            distractor2 = new AugrmentAttack(String.valueOf(distractors[1]));
+            generatedCards.add(correctAnswer);
+            generatedCards.add(distractor1);
+            generatedCards.add(distractor2);
+            Collections.shuffle(generatedCards);
+            this.hasquestion=!this.hasquestion;
+        }
 
 
 
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, convertArrayToQuestion(question), this.cardType != null);
+            if(this.returnColorless) {
+                AbstractDungeon.effectList.add(new Clockeffect(10.0F));
+            }else {
+                AbstractDungeon.effectList.add(new Clockeffect(5.0f));
+            }
+            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, convertArrayToQuestion(question), true);
             System.out.println(convertArrayToQuestion(question));
             this.tickDuration();
             System.out.println("干扰项1："+distractor1.rawDescription);
@@ -78,8 +102,8 @@ public class DiscoveryAction1 extends AbstractGameAction {
             if (!this.retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                 //如果选择的卡牌是correctAnswer
-                    System.out.println(correctAnswer.rawDescription);
-                    System.out.println(AbstractDungeon.cardRewardScreen.discoveryCard.rawDescription);
+                    System.out.println(correctAnswer.rawDescription+"是正确答案");
+                    System.out.println(AbstractDungeon.cardRewardScreen.discoveryCard.rawDescription+"是选择的答案项");
 
                     if (Objects.equals(AbstractDungeon.cardRewardScreen.discoveryCard.rawDescription, correctAnswer.rawDescription)) {
                         AbstractDungeon.actionManager.addToBottom(new CalculatedGambleAction(false));

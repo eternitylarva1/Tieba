@@ -30,19 +30,20 @@ public class jisuanxiazhu extends AbstractCard {
 
     public jisuanxiazhu() {
         super("Calculated Gamble", cardStrings.NAME, "green/skill/calculated_gamble", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.NONE);
-        this.exhaust = true;
-        this.magicNumber=1;
+        this.exhaust = false;
+        this.baseMagicNumber=this.magicNumber=1;
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-AbstractDungeon.actionManager.addToBottom(new DiscoveryAction1(false,1));
+AbstractDungeon.actionManager.addToBottom(new DiscoveryAction1(this.upgraded,this.magicNumber));
 
     }
 
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.magicNumber+=1;
+           this.baseMagicNumber=this.magicNumber=2;
      this.rawDescription=cardStrings.UPGRADE_DESCRIPTION;
      initializeDescription();
         }

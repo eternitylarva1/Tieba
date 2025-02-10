@@ -6,6 +6,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import extendedui.ui.controls.EUITextBoxInput;
+
+import static Zhenghuo.modcore.ExampleMod.UITorenders;
 
 
 public class playerMethodPatch {
@@ -25,6 +28,10 @@ public class playerMethodPatch {
                     if (OtherPlayerHelper.hasMinions(AbstractDungeon.player)) {
                        OtherPlayerHelper.getMinions().render(sb);
                     }
+                    for (EUITextBoxInput uiTorender : UITorenders) {
+                        uiTorender.render(sb);
+                    }
+
             }
         }
     }

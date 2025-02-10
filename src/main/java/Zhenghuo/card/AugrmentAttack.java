@@ -24,7 +24,7 @@ public class AugrmentAttack extends CustomCard {
     private static final int COST = -2;
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = CardColor.COLORLESS;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;

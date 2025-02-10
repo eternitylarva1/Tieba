@@ -72,8 +72,40 @@
   "DESCRIPTION": "",
   "UPGRADE_DESCRIPTION": "",
   "FLAVOR": ""
+},"Defragment": {
+  "NAME": "碎片整理",
+  "DESCRIPTION": "造成你C盘剩余空间的伤害(GB) NL C盘每有200GB总空间,本牌费用+1",
+  "UPGRADE_DESCRIPTION": "造成你C盘剩余空间的伤害(GB) NL C盘每有300GB总空间,本牌费用+1",
+  "FLAVOR": "是时候该清理下c盘了"
+},"PiercingWail": {
+  "NAME": "尖啸",
+  "DESCRIPTION": "所有敌人失去 游戏音量百分比 力量 1回合。 NL 消耗 。目前为 !M!  "
 },
-
+  "BecomeAlmighty": {
+    "NAME": "力大无穷",
+    "DESCRIPTION": "你的力量图标将变得非常大，并且你的力量没有上限"
+  },
+  "LiveForever": {
+    "NAME": "永生不死",
+    "DESCRIPTION": "每当你即将死亡时，进行一次SL"
+  },
+  "FameAndFortune": {
+    "NAME": "名利双收",
+    "DESCRIPTION": "获得 !M! 金币。怪物见到你时会和你打招呼"
+  },
+  "FTL": {
+    "NAME": "超越光速",
+    "DESCRIPTION": "造成 !D! 点伤害。 tieba:回溯 2 NL 如果你在这回合打出的牌数少于 !M! 张，抽一张牌。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已打出",
+      " 张牌。）",
+      " 张牌。）"
+    ]
+  },"Infinite Blades": {
+  "NAME": "无限刀刃",
+  "DESCRIPTION": "打出非 消耗 牌时，将一张 *小刀 加入手牌",
+  "UPGRADE_DESCRIPTION": "打出非 消耗 牌时，将一张 *小刀 加入手牌 NL 固有"
+},
   "JianXiao": {
   "NAME": "尖啸",
   "DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 ",
