@@ -2,7 +2,9 @@ package Zhenghuo.modcore;
 
 import Zhenghuo.card.*;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
+import Zhenghuo.patchs.MonsterAddFieldsPatch;
 import Zhenghuo.relics.StrongCharacter;
+import Zhenghuo.utils.Calculate;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
@@ -37,7 +39,7 @@ import static extendedui.ui.EUIBase.scale;
 
 
 @SpireInitializer
-public class ExampleMod implements OnPlayerTurnStartSubscriber,EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
+public class ExampleMod implements PostBattleSubscriber,OnPlayerTurnStartSubscriber,EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
 public static String NowPlayer=null;
 
     public ExampleMod() {
@@ -129,7 +131,9 @@ public static String NowPlayer=null;
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
+
         OtherPlayerHelper.clearMinions(player);
+        UITorenders.clear();
     }
 
     @Override
@@ -143,22 +147,26 @@ public static String NowPlayer=null;
 public static ArrayList<EUITextBoxInput> UITorenders = new ArrayList<>();
     @Override
     public void receiveOnPlayerTurnStart() {
+        //todo 尝试完成结算题目的逻辑
+        /*
         if(GameActionManager.turn==1){
             for (AbstractMonster monster : getCurrRoom().monsters.monsters) {
                  final EUITextBoxInput descriptionInput;
                 descriptionInput=(EUITextBoxInput) new EUITextBoxInput(EUIRM.images.rectangularButton.texture(),
-                        new EUIHitbox(0, 0, scale(360), scale(40)).setIsPopupCompatible(true))
-                        .setHeader(FontHelper.topPanelAmountFont, 0.8f, Settings.GOLD_COLOR, EUIRM.strings.ui_descriptionSearch)
+                        new EUIHitbox(monster.drawX-30, monster.drawY+monster.hb_h*1.5f, scale(100), scale(40)).setIsPopupCompatible(true))
+                        .setHeader(FontHelper.topPanelAmountFont, 0.8f, Settings.GOLD_COLOR, "请输入答案")
                         .setHeaderSpacing(1f)
                         .setColors(Color.GRAY, Settings.CREAM_COLOR)
                         .setAlignment(0.5f, 0.1f)
                         .setFont(FontHelper.cardDescFont_N, 0.8f)
                         .setBackgroundTexture(EUIRM.images.rectangularButton.texture());
-
+                UITorenders.add(descriptionInput);
+                MonsterAddFieldsPatch.f_Inputers.set(monster,descriptionInput);
+                MonsterAddFieldsPatch.f_questions.set(monster,Calculate.generateMathQuestion());
             }
 
 
 
-        }
+        }*/
     }
 }
