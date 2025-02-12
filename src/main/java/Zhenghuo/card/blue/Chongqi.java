@@ -1,7 +1,4 @@
-package Zhenghuo.card;
-
-import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.cards.blue.Reboot;
+package Zhenghuo.card.blue;
 
 //
 // Source code recreated from a .class file by IntelliJ IDEA
@@ -9,21 +6,10 @@ import com.megacrit.cardcrawl.cards.blue.Reboot;
 //
 
 
-
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ShuffleAction;
-import com.megacrit.cardcrawl.actions.defect.ShuffleAllAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.green.CalculatedGamble;
-import com.megacrit.cardcrawl.cards.red.FeelNoPain;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+        import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
+        import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Zhenghuo.relics.StrongCharacter.initizeGame;

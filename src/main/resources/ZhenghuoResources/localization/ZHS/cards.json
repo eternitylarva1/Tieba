@@ -74,24 +74,28 @@
   "FLAVOR": ""
 },"Defragment": {
   "NAME": "碎片整理",
-  "DESCRIPTION": "造成你C盘剩余空间的伤害(GB) NL C盘每有200GB总空间,本牌费用+1",
-  "UPGRADE_DESCRIPTION": "造成你C盘剩余空间的伤害(GB) NL C盘每有300GB总空间,本牌费用+1",
+  "DESCRIPTION": "造成你C盘剩余空间的伤害(G) NL C盘每有200GB总空间,本牌费用+1 NL 目前剩余空间 !D! G",
+  "UPGRADE_DESCRIPTION": "造成你C盘剩余空间的伤害(G) NL C盘每有300GB总空间,本牌费用+1 NL 目前剩余空间 !D! G",
   "FLAVOR": "是时候该清理下c盘了"
 },"PiercingWail": {
   "NAME": "尖啸",
-  "DESCRIPTION": "所有敌人失去 游戏音量百分比 力量 1回合。 NL 消耗 。目前为 !M!  "
+  "DESCRIPTION": "所有敌人失去 游戏音量百分比 力量 1回合。 NL 消耗 。目前为 !M!  ",
+  "FLAVOR": "当你尖啸怪物，同时游戏也在尖啸你"
 },
   "BecomeAlmighty": {
     "NAME": "力大无穷",
-    "DESCRIPTION": "你的力量图标将变得非常大，并且你的力量没有上限"
+    "DESCRIPTION": "你的力量图标将变得非常大，并且你的力量没有上限",
+    "FLAVOR": "我的力量无人能及！"
   },
   "LiveForever": {
     "NAME": "永生不死",
-    "DESCRIPTION": "每当你即将死亡时，进行一次SL"
+    "DESCRIPTION": "每当你即将死亡时，进行一次SL",
+    "FLAVOR": "我有一种能回到死前几分钟的超能力！"
   },
   "FameAndFortune": {
     "NAME": "名利双收",
-    "DESCRIPTION": "获得 !M! 金币。怪物见到你时会和你打招呼"
+    "DESCRIPTION": "获得 !M! 金币。怪物见到你时会和你打招呼",
+    "FLAVOR": "我抄，盒！"
   },
   "FTL": {
     "NAME": "超越光速",
@@ -100,12 +104,44 @@
       " NL （已打出",
       " 张牌。）",
       " 张牌。）"
-    ]
+    ],
+    "FLAVOR": "在理论的边缘遐想，若真能跨越光速的壁垒，或许能在时间的褶皱中寻回失落的契机。"
   },"Infinite Blades": {
   "NAME": "无限刀刃",
-  "DESCRIPTION": "打出非 消耗 牌时，将一张 *小刀 加入手牌",
-  "UPGRADE_DESCRIPTION": "打出非 消耗 牌时，将一张 *小刀 加入手牌 NL 固有"
+  "DESCRIPTION": "打出技能牌时，将一张 *小刀 加入手牌",
+  "UPGRADE_DESCRIPTION": "打出技能牌时，将一张 *小刀 加入手牌 NL 固有",
+  "FLAVOR": "布豪，是牢头！快使用逃脱计划！"
+},"Darkness": {
+  "NAME": "漆黑",
+  "DESCRIPTION": "本场战斗场景亮度减低10% NL 生成一个黑球 NL 你的屏幕亮度每降低10%，黑球伤害增加50%",
+  "UPGRADE_DESCRIPTION": "本场场景亮度减低10% NL 生成一个黑球 NL 你的屏幕亮度每降低10%，黑球伤害增加100%",
+  "FLAVOR": "我怎么什么都看不见了？哦，原来我成为观者了"
+},"Clash": {
+  "NAME": "交锋",
+  "DESCRIPTION": "只有在所有敌人意图都是攻击时才能被打出。 NL 造成 !D! 点伤害。",
+  "EXTENDED_DESCRIPTION": [
+    "有敌人的意图不是攻击。"
+  ],
+  "FLAVOR": "敌人攻击我攻击"
+},"Escape Plan": {
+  "NAME": "逃脱计划",
+  "DESCRIPTION": "抽1张牌。 NL 如果你拥有buff *计划妥当 ，逃离这张战斗，否则将一张 *计划妥当 加入弃牌堆",
+  "FLAVOR": "溜了溜了"
+},"Dramatic Entrance": {
+  "NAME": "闪亮登场",
+  "DESCRIPTION": " 固有 。 NL 释放一次闪光弹，有50%概率 tieba:致盲 敌人 NL 对所有敌人造成 !D! 点伤害。 NL 消耗 。",
+  "FLAVOR": "啊！我的眼睛！"
+},"WheelKick": {
+  "NAME": "回环踢",
+  "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 如果敌人带有金冠，使其失去金冠，并战斗奖励增加一个 *破损的金冠 ",
+  "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌 NL 如果敌人带有金冠，使其失去金冠，战斗奖励增加一个 *破损的金冠 。",
+  "FLAVOR": "羡慕第一勇士"
 },
+  "Disarm": {
+    "NAME": "缴械",
+    "DESCRIPTION": "使所有有武器的敌人失去 !M! 点 力量 。 并且失去武器  NL 消耗 。",
+    "FLAVOR": "非常合理呀"
+  },
   "JianXiao": {
   "NAME": "尖啸",
   "DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 ",

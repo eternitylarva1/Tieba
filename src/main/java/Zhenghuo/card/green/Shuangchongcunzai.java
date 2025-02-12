@@ -1,4 +1,4 @@
-package Zhenghuo.card;
+package Zhenghuo.card.green;
 
 //
 // Source code recreated from a .class file by IntelliJ IDEA
@@ -10,17 +10,12 @@ import Zhenghuo.otherplayer.AbstractOtherPlayer;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.EscapeAction;
-import com.megacrit.cardcrawl.actions.unique.DoppelgangerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
         import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.characters.Ironclad;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.ending.SpireShield;
-import com.megacrit.cardcrawl.powers.BackAttackPower;
 import com.megacrit.cardcrawl.powers.SurroundedPower;
 
 public class Shuangchongcunzai extends AbstractCard {

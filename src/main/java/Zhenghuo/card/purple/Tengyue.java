@@ -1,10 +1,17 @@
-package Zhenghuo.card;
+package Zhenghuo.card.purple;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
+
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,12 +26,12 @@ import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 import java.util.Objects;
 
-public class baoxue extends AbstractCard {
-    public static final String ID = "Blizzard";
+public class Tengyue extends AbstractCard {
+    public static final String ID = "Tengyue";
     private static final CardStrings cardStrings;
 
-    public baoxue() {
-        super("Blizzard", cardStrings.NAME, "blue/attack/blizzard", 1, cardStrings.DESCRIPTION, CardType.POWER, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);
+    public Tengyue() {
+        super("Tengyue", cardStrings.NAME, "purple/skill/vault", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.ALL);
         this.exhaust = true;
     }
 
@@ -56,17 +63,16 @@ public class baoxue extends AbstractCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-     this.rawDescription=cardStrings.UPGRADE_DESCRIPTION;
-     initializeDescription();
+            this.upgradeBaseCost(2);
         }
 
     }
 
     public AbstractCard makeCopy() {
-        return new baoxue();
+        return new Tengyue();
     }
 
     static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings("Blizzard");
+        cardStrings = CardCrawlGame.languagePack.getCardStrings("Tengyue");
     }
 }

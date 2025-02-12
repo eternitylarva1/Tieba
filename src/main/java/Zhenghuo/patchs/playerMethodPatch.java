@@ -1,12 +1,15 @@
 package Zhenghuo.patchs;
 
+import Zhenghuo.modcore.ExampleMod;
 import Zhenghuo.otherplayer.AbstractOtherPlayer;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import Zhenghuo.utils.Calculate;
+import Zhenghuo.utils.ScreenDarkener;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.cards.red.Disarm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -33,7 +36,9 @@ public class playerMethodPatch {
                     if (OtherPlayerHelper.hasMinions(AbstractDungeon.player)) {
                        OtherPlayerHelper.getMinions().render(sb);
                     }
-
+                    for (ScreenDarkener screendarkener : ExampleMod.screendarkeners) {
+                        screendarkener.render(sb);
+                    }
 
 
             }
@@ -50,11 +55,11 @@ public class playerMethodPatch {
         public static void Postfix(AbstractMonster monster, SpriteBatch sb) {
 
             switch (AbstractDungeon.getCurrRoom().phase) {
-                case COMBAT:
+                case COMBAT:/*
                     MonsterAddFieldsPatch.f_Inputers.get(monster).render(sb);
                     Object[] MonsterQuestion=MonsterAddFieldsPatch.f_questions.get(monster);
                     FontHelper.renderFont(sb,FontHelper.topPanelAmountFont, Calculate.convertArrayToQuestion(MonsterQuestion),monster.drawX-50,monster.drawY-monster.hb_h*0.2f, Color.WHITE);
-
+*/
 
 
 

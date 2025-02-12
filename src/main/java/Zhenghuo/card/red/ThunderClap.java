@@ -1,13 +1,6 @@
-package Zhenghuo.card;
+package Zhenghuo.card.red;
 
-import basemod.devcommands.history.History;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
-import com.megacrit.cardcrawl.cards.blue.Blizzard;
-import com.megacrit.cardcrawl.cards.blue.Buffer;
-import com.megacrit.cardcrawl.cards.blue.Darkness;
-import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
 
 
 //
@@ -16,36 +9,16 @@ import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
 //
 
 
-
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.curses.AscendersBane;
-import com.megacrit.cardcrawl.cards.curses.Doubt;
-import com.megacrit.cardcrawl.cards.green.Concentrate;
-import com.megacrit.cardcrawl.cards.red.BloodForBlood;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.screens.stats.RunData;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-
-import static basemod.devcommands.history.History.*;
 
 public class ThunderClap extends AbstractCard {
     public static final String ID = "Thunderclap";

@@ -1,7 +1,6 @@
-package Zhenghuo.card;
+package Zhenghuo.card.purple;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.purple.Wish;
 
 //
 // Source code recreated from a .class file by IntelliJ IDEA
@@ -9,17 +8,7 @@ import com.megacrit.cardcrawl.cards.purple.Wish;
 //
 
 
-
-import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.optionCards.BecomeAlmighty;
-import com.megacrit.cardcrawl.cards.optionCards.FameAndFortune;
-import com.megacrit.cardcrawl.cards.optionCards.LiveForever;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,8 +18,6 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.awt.*;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Xuyuan extends AbstractCard {
     public static final String ID = "Xuyuan";

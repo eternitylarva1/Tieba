@@ -5,6 +5,7 @@ import Zhenghuo.otherplayer.OtherPlayerHelper;
 import Zhenghuo.patchs.MonsterAddFieldsPatch;
 import Zhenghuo.relics.StrongCharacter;
 import Zhenghuo.utils.Calculate;
+import Zhenghuo.utils.ScreenDarkener;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.cards.blue.Defragment;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -60,6 +62,7 @@ public static String NowPlayer=null;
                 .packageFilter(Soul_P.class) // 寻找所有和此类同一个包及内部包的类（本例子是所有卡牌）
                 .setDefaultSeen(true) // 是否将卡牌标为可见
                 .cards(); // 开始批量添加卡牌
+
     }
 
     @Override
@@ -76,7 +79,7 @@ public static String NowPlayer=null;
             }
 
 
-
+    public static ArrayList<ScreenDarkener> screendarkeners=new ArrayList();
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new StrongCharacter(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
@@ -134,6 +137,10 @@ public static String NowPlayer=null;
 
         OtherPlayerHelper.clearMinions(player);
         UITorenders.clear();
+        for (ScreenDarkener screenDarkener : screendarkeners) {
+            screenDarkener.dispose();
+        }
+        screendarkeners.clear();
     }
 
     @Override
