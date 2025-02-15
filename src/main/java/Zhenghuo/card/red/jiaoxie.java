@@ -3,6 +3,7 @@ package Zhenghuo.card.red;
 import Zhenghuo.relics.Customweapon;
 import Zhenghuo.utils.Invoker;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.esotericsoftware.spine.Bone;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Slot;
@@ -19,8 +20,7 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 
 import java.util.ArrayList;
 
-import static Zhenghuo.utils.SpineRegionExtractor.getTextureFromSlot;
-import static Zhenghuo.utils.SpineRegionExtractor.getTextureRegionFromSlot;
+import static Zhenghuo.utils.SpineRegionExtractor.*;
 
 public class jiaoxie extends AbstractCard {
     public static final String ID = "Disarm";
@@ -77,9 +77,11 @@ AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             }
             for (Slot slots : weaponSlots) {
                 Color currentColor = slots.getColor();
-
+                Texture originalTexture = getTextureFromSlot(slots);
+                String textureKey =slots.getData().getName()+"_"+slots.getData().getIndex();
+              cacheTexture(textureKey, originalTexture);
                 currentColor.set(currentColor.r, currentColor.g, currentColor.b, 0f);
-            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(new Customweapon(getTextureFromSlot(slots))));
+            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(new Customweapon(getCachedTexture(textureKey))));
             }
 
         }

@@ -10,6 +10,9 @@ import com.esotericsoftware.spine.attachments.Attachment;
 import com.esotericsoftware.spine.attachments.MeshAttachment;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SpineRegionExtractor {
 
     /**
@@ -33,7 +36,7 @@ public class SpineRegionExtractor {
         }
         return null;
     }
-
+    private static Map<String, Texture> cache = new HashMap<>();
     /**
      * 从指定的 Slot 中获取 Texture
      * @param slot 要处理的 Slot 对象
@@ -47,6 +50,22 @@ public class SpineRegionExtractor {
         return null;
     }
 
+    public static void cacheTexture(String key, Texture texture) {
+        if (!cache.containsKey(key)) {
+            cache.put(key, new Texture(texture.getTextureData()));
+        }
+    }
+
+    public static Texture getCachedTexture(String key) {
+        return cache.get(key);
+    }
+
+    public static void clearCache() {
+        for (Texture texture : cache.values()) {
+            texture.dispose();
+        }
+        cache.clear();
+    }
     /**
      * 将纹理缩放到长度小于 64 像素
      * @param texture 要缩放的纹理
