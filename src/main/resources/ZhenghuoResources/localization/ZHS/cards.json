@@ -221,7 +221,7 @@
   },
   "Heatsinks": {
     "NAME": "散热片",
-    "DESCRIPTION": "你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。",
+    "DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。",
     "UPGRADE_DESCRIPTION": "你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。"
   },
 
