@@ -5,7 +5,10 @@ import Zhenghuo.otherplayer.AbstractOtherPlayer;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import Zhenghuo.utils.Calculate;
 import Zhenghuo.utils.ScreenDarkener;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -16,7 +19,11 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.ui.controls.EUITextBoxInput;
 
+import java.util.Map;
+
 import static Zhenghuo.modcore.ExampleMod.UITorenders;
+import static Zhenghuo.utils.TextureCache.cache;
+import static com.badlogic.gdx.graphics.GL20.*;
 
 
 public class playerMethodPatch {
@@ -29,7 +36,7 @@ public class playerMethodPatch {
         }
 
         @SpirePostfixPatch
-        public static void Postfix(AbstractPlayer _instance, SpriteBatch sb) {
+        public static <K, V> void Postfix(AbstractPlayer _instance, SpriteBatch sb) {
 
             switch (AbstractDungeon.getCurrRoom().phase) {
                 case COMBAT:
@@ -39,6 +46,14 @@ public class playerMethodPatch {
                     for (ScreenDarkener screendarkener : ExampleMod.screendarkeners) {
                         screendarkener.render(sb);
                     }
+/*
+                    for (Map.Entry<String, Texture> entry : cache.entrySet()) {
+                         String key = (String) entry.getKey();
+                        Texture value = (Texture) entry.getValue();/*
+                        sb.draw(value, 0.0F, 0.0F, (float) Gdx.graphics.getWidth(), (float) Gdx.graphics.getHeight());
+
+                        // 处理 key 和 value
+                    }*/
 
 
             }

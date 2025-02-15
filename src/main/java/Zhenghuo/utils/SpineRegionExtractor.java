@@ -2,70 +2,68 @@ package Zhenghuo.utils;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.esotericsoftware.spine.Slot;
 import com.esotericsoftware.spine.attachments.Attachment;
-import com.esotericsoftware.spine.attachments.MeshAttachment;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.esotericsoftware.spine.attachments.MeshAttachment;
 
 public class SpineRegionExtractor {
 
     /**
      * 从指定的 Slot 中获取 TextureRegion
      * @param slot 要处理的 Slot 对象
+     * @param atlas 纹理图集
      * @return 对应的 TextureRegion，如果不存在则返回 null
      */
-    public static TextureRegion getTextureRegionFromSlot(Slot slot) {
-        if (slot == null) {
+    public static TextureRegion getTextureRegionFromSlot(Slot slot, TextureAtlas atlas) {
+        if (slot == null || atlas == null) {
             return null;
         }
-        // 从 Slot 中获取 Attachment
         Attachment attachment = slot.getAttachment();
+        String regionName = null;
         if (attachment instanceof RegionAttachment) {
-            // 获取 TextureRegion
-            RegionAttachment regionAttachment = (RegionAttachment) attachment;
-            return regionAttachment.getRegion();
+            regionName = ((RegionAttachment) attachment).getPath();
         } else if (attachment instanceof MeshAttachment) {
-            MeshAttachment meshAttachment = (MeshAttachment) attachment;
-            return meshAttachment.getRegion();
+            regionName = ((MeshAttachment) attachment).getPath();
+        }
+        System.out.println("Attachment path: " + regionName);
+        if (attachment != null) {
+            if (attachment instanceof RegionAttachment) {
+                RegionAttachment regionAttachment = (RegionAttachment) attachment;
+               regionName = regionAttachment.getPath();
+                TextureRegion region = atlas.findRegion(regionName);
+
+                if (region != null) {
+                    return region;
+                }
+            } else if (attachment instanceof MeshAttachment) {
+                MeshAttachment meshAttachment = (MeshAttachment) attachment;
+              regionName = meshAttachment.getPath();
+                TextureRegion region = atlas.findRegion(regionName);
+                if (region != null) {
+                    return region;
+                }
+            }
         }
         return null;
     }
-    private static Map<String, Texture> cache = new HashMap<>();
+
     /**
      * 从指定的 Slot 中获取 Texture
      * @param slot 要处理的 Slot 对象
+     * @param atlas 纹理图集
      * @return 对应的 Texture，如果不存在则返回 null
      */
-    public static Texture getTextureFromSlot(Slot slot) {
-        TextureRegion region = getTextureRegionFromSlot(slot);
+    public static Texture getTextureFromSlot(Slot slot, TextureAtlas atlas) {
+        TextureRegion region = getTextureRegionFromSlot(slot, atlas);
         if (region != null) {
             return region.getTexture();
         }
         return null;
     }
 
-    public static void cacheTexture(String key, Texture texture) {
-        if (!cache.containsKey(key)) {
-            cache.put(key, new Texture(texture.getTextureData()));
-        }
-    }
-
-    public static Texture getCachedTexture(String key) {
-        return cache.get(key);
-    }
-
-    public static void clearCache() {
-        for (Texture texture : cache.values()) {
-            texture.dispose();
-        }
-        cache.clear();
-    }
     /**
      * 将纹理缩放到长度小于 64 像素
      * @param texture 要缩放的纹理
@@ -88,15 +86,14 @@ public class SpineRegionExtractor {
         int newHeight = (int) (height * scaleFactor);
 
         // 获取纹理数据并确保其已准备好
-        TextureData textureData = texture.getTextureData();
-        textureData.prepare();
-        Pixmap srcPixmap = textureData.consumePixmap();
+        texture.getTextureData().prepare();
+        com.badlogic.gdx.graphics.Pixmap srcPixmap = texture.getTextureData().consumePixmap();
 
-        Pixmap scaledPixmap = new Pixmap(newWidth, newHeight, Format.RGBA8888);
+        com.badlogic.gdx.graphics.Pixmap scaledPixmap = new com.badlogic.gdx.graphics.Pixmap(newWidth, newHeight, com.badlogic.gdx.graphics.Pixmap.Format.RGBA8888);
         scaledPixmap.drawPixmap(srcPixmap, 0, 0, width, height, 0, 0, newWidth, newHeight);
 
         // 如果 consumePixmap 返回的是一个新的 Pixmap 实例，则释放它
-        if (textureData.getType() !=TextureData.TextureDataType.Custom) {
+        if (texture.getTextureData().getType() != TextureData.TextureDataType.Custom) {
             srcPixmap.dispose();
         }
 

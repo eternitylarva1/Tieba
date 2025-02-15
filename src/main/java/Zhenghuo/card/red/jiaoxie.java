@@ -4,6 +4,7 @@ import Zhenghuo.relics.Customweapon;
 import Zhenghuo.utils.Invoker;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.esotericsoftware.spine.Bone;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Slot;
@@ -21,6 +22,8 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 import java.util.ArrayList;
 
 import static Zhenghuo.utils.SpineRegionExtractor.*;
+import static Zhenghuo.utils.TextureCache.cacheTexture;
+import static Zhenghuo.utils.TextureCache.getCachedTexture;
 
 public class jiaoxie extends AbstractCard {
     public static final String ID = "Disarm";
@@ -39,8 +42,11 @@ AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
     public void update() {
         Bone bone;
         Slot slot ;
+        TextureAtlas atlas;
         ArrayList<Slot> weaponSlots = new ArrayList<>();
         for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            weaponSlots.clear();
+            atlas=Invoker.getField(monster,"atlas");
             Skeleton skeleton = Invoker.getField(monster,"skeleton"); // 这里需要你根据游戏实际情况实现获取方法
 // 获取指定插槽
 
@@ -49,6 +55,7 @@ AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             for (String slotName : slotsToHide) {
                 slot = skeleton.findSlot(slotName);
                 bone = skeleton.findBone(slotName);
+
                 if (slot != null) {
                   weaponSlots.add(slot);
                     this.addToBot(new ApplyPowerAction(monster, p, new StrengthPower(monster, -jiaoxie.this.magicNumber), -jiaoxie.this.magicNumber));
@@ -77,12 +84,13 @@ AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             }
             for (Slot slots : weaponSlots) {
                 Color currentColor = slots.getColor();
-                Texture originalTexture = getTextureFromSlot(slots);
+
+                Texture originalTexture = getTextureFromSlot(slots,atlas);
                 String textureKey =slots.getData().getName()+"_"+slots.getData().getIndex();
               cacheTexture(textureKey, originalTexture);
                 currentColor.set(currentColor.r, currentColor.g, currentColor.b, 0f);
-            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(new Customweapon(getCachedTexture(textureKey))));
-            }
+            /*AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(new Customweapon(getCachedTexture(textureKey))));
+            */}
 
         }
 
