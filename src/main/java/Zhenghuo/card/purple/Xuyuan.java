@@ -24,7 +24,7 @@ public class Xuyuan extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public Xuyuan() {
-        super("Wish", cardStrings.NAME, "purple/skill/wish", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.NONE);
+        super("Xuyuan", cardStrings.NAME, "purple/skill/wish", 0, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.NONE);
         this.baseDamage = 3;
         this.baseMagicNumber = 25;
         this.magicNumber = 25;

@@ -82,6 +82,7 @@
   "DESCRIPTION": "所有敌人失去 游戏音量百分比 力量 1回合。 NL 消耗 。目前为 !M!  ",
   "FLAVOR": "当你尖啸怪物，同时游戏也在尖啸你"
 },
+
   "BecomeAlmighty": {
     "NAME": "力大无穷",
     "DESCRIPTION": "你的力量图标将变得非常大，并且你的力量没有上限",
@@ -89,7 +90,7 @@
   },
   "LiveForever": {
     "NAME": "永生不死",
-    "DESCRIPTION": "每当你即将死亡时，进行一次SL",
+    "DESCRIPTION": "当你死亡后，你可以回到死亡前的存档继续游戏",
     "FLAVOR": "我有一种能回到死前几分钟的超能力！"
   },
   "FameAndFortune": {
@@ -137,11 +138,99 @@
   "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌 NL 如果敌人带有金冠，使其失去金冠，战斗奖励增加一个 *破损的金冠 。",
   "FLAVOR": "羡慕第一勇士"
 },
+  "Evaluate": {
+  "NAME": "评估",
+  "DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得20点格挡。",
+  "UPGRADE_DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得30点格挡。",
+    "FLAVOR": "刷好评是吧"
+},"Unload": {
+  "NAME": "乾坤一掷",
+  "DESCRIPTION": "将游戏背景和战斗ui丢出去，对所有敌人造成 !D! 点伤害 NL 消耗",
+  "UPGRADE_DESCRIPTION": "将游戏背景丢出去，对所有敌人造成 !D! 点伤害 消耗",
+  "FLAVOR": "触屏党：？"
+},
+  "Stack": {
+  "NAME": "堆栈",
+  "DESCRIPTION": "洗牌时，按后进先出的顺序将卡牌移入抽牌堆",
+  "UPGRADE_DESCRIPTION": "固有 洗牌时，按后进先出的顺序将卡牌移入抽牌堆",
+    "FLAVOR": "什么时候出个队列",
+  "EXTENDED_DESCRIPTION": [
+    " NL （共有 !B! 张牌 。）"
+  ]
+
+},
+  "Distraction": {
+    "NAME": "声东击西",
+    "DESCRIPTION": "本回合，你的攻击改为对选中的目标以外的所有怪物造成伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "本回合，你的攻击改为对选中的目标以外的所有怪物造成伤害。NL 消耗 NL 保留 "
+
+  },
+  "Omniscience": {
+    "NAME": "通晓万物",
+    "DESCRIPTION": "从所有牌中选择一张，加入抽牌堆 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从所有牌中选择一张，加入手牌 NL 消耗",
+    "FLAVOR": "另一个方案是选择一张牌，打开其wiki百科界面"
+  },
+  "Judgement": {
+    "NAME": "审判",
+    "DESCRIPTION": "如果目标敌人的生命值小于等于你当前角色的最大连胜， NL 则将其生命值变为0。目前为 !M! ",
+    "FLAVOR": "马太效应",
+    "EXTENDED_DESCRIPTION": [
+      "审判"
+    ]
+
+  }, "All Out Attack": {
+  "NAME": "全力攻击",
+  "DESCRIPTION": "依次对随机敌人打出手中所有攻击牌。 NL 如果手中没有攻击牌，则对所有敌人造成 !D! 点伤害"
+},
+  "Halt": {
+    "NAME": "停顿",
+    "DESCRIPTION": "打出后，本局游戏的计时将停止，再次打出后恢复",
+    "FLAVOR": "竞速神卡"
+  },
+
+  "Bloodletting": {
+    "NAME": "放血",
+    "DESCRIPTION": "失去 1 点生命。",
+    "UPGRADE_DESCRIPTION": "失去 1 点生命。打出后回到手牌",
+    "FLAVOR": "疼痛弱化版"
+  },
+  "Glass Knife": {
+    "NAME": "玻璃刀刃",
+    "DESCRIPTION": "造成 !D! 点伤害两次。 NL 这张牌被打出时有25%概率被 消耗 并移出卡组。",
+    "FLAVOR": "什么小丑牌"
+  },
+  "Grand Finale": {
+    "NAME": "华丽收场",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。NL 打出后，如果战斗没有结束，则死亡 ",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。打出后，如果战斗没有结束，则死亡  。 ",
+    "FLAVOR": "无论成败，我的命运便在此刻定格"
+  },
+  "Chrysalis": {
+    "NAME": "结茧",
+    "DESCRIPTION": "将一张 *羽化 放入抽牌堆。 其 NL 在本场战斗中耗能为0。 NL 消耗 。 NL 抽一张牌"
+  },
+  "Metamorphosis": {
+    "NAME": "羽化",
+    "DESCRIPTION": "将一张3张 *攻击牌 和3张 *技能牌 放入抽牌堆。 其 NL 在本场战斗中耗能为0。 NL 消耗 。 NL 抽一张牌"
+  },
+  "Coolheaded": {
+    "NAME": "冷静头脑",
+    "DESCRIPTION": "进入 平静 。 NL 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "进入 平静 。 NL 抽 !M! 张牌。"
+  },
+  "Heatsinks": {
+    "NAME": "散热片",
+    "DESCRIPTION": "你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。"
+  },
+
   "Disarm": {
     "NAME": "缴械",
     "DESCRIPTION": "使所有有武器的敌人失去 !M! 点 力量 。 并且失去武器  NL 消耗 。",
     "FLAVOR": "非常合理呀"
   },
+
   "JianXiao": {
   "NAME": "尖啸",
   "DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 ",
