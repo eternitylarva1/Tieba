@@ -1,0 +1,11 @@
+{
+  "ChatterMod:ModConfigs": {
+    "TEXT": [
+      "This does nothing yet."
+    ],
+    "EXTRA_TEXT": [
+      "Chatter Mod",
+      "Text."
+    ]
+  }
+}

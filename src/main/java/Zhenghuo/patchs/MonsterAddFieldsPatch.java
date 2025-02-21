@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.monsters.beyond.AwakenedOne;
 import extendedui.EUIRM;
 import extendedui.ui.controls.EUITextBoxInput;
 import extendedui.ui.hitboxes.EUIHitbox;
@@ -28,6 +29,7 @@ public class MonsterAddFieldsPatch {
 
 
     public MonsterAddFieldsPatch() {
+
     }
 
 }

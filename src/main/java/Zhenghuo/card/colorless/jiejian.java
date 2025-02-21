@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.relics.BustedCrown;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
 public class jiejian extends AbstractCard {
-    public static final String ID = "WheelKick";
+    public static final String ID = "Chrysalis";
     private static final CardStrings cardStrings;
     private static final Metamorphosis metamorphosis=new Metamorphosis();
 
@@ -50,6 +50,6 @@ public class jiejian extends AbstractCard {
     }
 
     static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings("WheelKick");
+        cardStrings = CardCrawlGame.languagePack.getCardStrings("Chrysalis");
     }
 }

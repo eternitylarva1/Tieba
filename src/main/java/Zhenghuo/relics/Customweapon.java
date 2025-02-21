@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.ArrayList;

@@ -1,0 +1,14 @@
+{
+  "ChatterMod:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Main description",
+    "UPGRADE_DESCRIPTION": "Upgrade description",
+    "EXTENDED_DESCRIPTION": [
+      "Extra Stuff"
+    ]
+  },
+  "ChatterMod:Chatter": {
+    "NAME": "Chatter",
+    "DESCRIPTION": "Record yourself. NL Play it back to deal up to !D! damage to ALL enemies based on volume."
+  }
+}

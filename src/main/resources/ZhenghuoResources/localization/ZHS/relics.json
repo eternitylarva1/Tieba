@@ -9,5 +9,10 @@
     "FLAVOR": "以战养战！",
     "DESCRIPTIONS": [
       "还没想好什么效果"   ]
+  }, "Tieba:CultistMask": {
+    "NAME": "邪教徒头套",
+    "FLAVOR": "咔咔！",
+    "DESCRIPTIONS": [
+      "战斗开始时，你可以大叫一声“咔咔！”,你叫的声音越大，获得的仪式越多"   ]
   }
 }

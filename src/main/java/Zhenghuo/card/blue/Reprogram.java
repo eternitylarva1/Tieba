@@ -39,6 +39,10 @@ public class Reprogram extends AbstractCard {
                 //addToBot(new ChangePlayerAction("TheSilent"));
                 this.rawDescription="变成静默猎手";
                 break;
+                case"Watcher":
+                //addToBot(new ChangePlayerAction("Watcher"));
+                this.rawDescription="变成观者";
+                break;
         }
         initializeDescription();
         this.player=player;
@@ -48,6 +52,9 @@ public class Reprogram extends AbstractCard {
         ArrayList<AbstractCard> stanceChoices = new ArrayList();
         stanceChoices.add(new Reprogram("Ironclad"));
         stanceChoices.add(new Reprogram("TheSilent"));
+        if(this.upgraded){
+            stanceChoices.add(new Reprogram("Watcher"));
+        }
         this.addToBot(new ChooseOneAction(stanceChoices));
     }
 
@@ -59,6 +66,8 @@ public class Reprogram extends AbstractCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
             this.upgradeBaseCost(1);
         }
 

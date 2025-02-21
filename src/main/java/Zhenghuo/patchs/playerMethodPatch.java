@@ -1,29 +1,23 @@
 package Zhenghuo.patchs;
 
+import ChatterMod.actions.RecordAndPlaybackAction;
 import Zhenghuo.modcore.ExampleMod;
-import Zhenghuo.otherplayer.AbstractOtherPlayer;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import Zhenghuo.utils.Calculate;
 import Zhenghuo.utils.ScreenDarkener;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
-import com.megacrit.cardcrawl.cards.red.Disarm;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.ui.controls.EUITextBoxInput;
 
-import java.util.Map;
-
+import static Zhenghuo.modcore.ExampleMod.Tips;
 import static Zhenghuo.modcore.ExampleMod.UITorenders;
-import static Zhenghuo.utils.TextureCache.cache;
-import static com.badlogic.gdx.graphics.GL20.*;
 
 
 public class playerMethodPatch {
@@ -46,6 +40,9 @@ public class playerMethodPatch {
                     for (ScreenDarkener screendarkener : ExampleMod.screendarkeners) {
                         screendarkener.render(sb);
                     }
+
+                    FontHelper.renderFont(sb, FontHelper.topPanelAmountFont,Tips,_instance.drawX-50,_instance.drawY+_instance.hb_h*0.2f, Color.WHITE);
+
 /*
                     for (Map.Entry<String, Texture> entry : cache.entrySet()) {
                          String key = (String) entry.getKey();
@@ -74,7 +71,10 @@ public class playerMethodPatch {
                     MonsterAddFieldsPatch.f_Inputers.get(monster).render(sb);
                     Object[] MonsterQuestion=MonsterAddFieldsPatch.f_questions.get(monster);
                     FontHelper.renderFont(sb,FontHelper.topPanelAmountFont, Calculate.convertArrayToQuestion(MonsterQuestion),monster.drawX-50,monster.drawY-monster.hb_h*0.2f, Color.WHITE);
-*/
+*//*
+                if(!ExampleMod.StartRecord){
+                    return;
+                }*/
 
 
 

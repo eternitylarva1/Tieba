@@ -173,7 +173,7 @@
   },
   "Judgement": {
     "NAME": "审判",
-    "DESCRIPTION": "如果目标敌人的生命值小于等于你当前角色的最大连胜， NL 则将其生命值变为0。目前为 !M! ",
+    "DESCRIPTION": "如果目标敌人的生命值小于等于你当前角色的最大连胜， NL 则将其生命值变为0。",
     "FLAVOR": "马太效应",
     "EXTENDED_DESCRIPTION": [
       "审判"
@@ -202,17 +202,17 @@
   },
   "Grand Finale": {
     "NAME": "华丽收场",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。NL 打出后，如果战斗没有结束，则死亡 ",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。打出后，如果战斗没有结束，则死亡  。 ",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 打出后，如果战斗没有结束，则死亡 ",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 打出后，如果战斗没有结束，则死亡  。 ",
     "FLAVOR": "无论成败，我的命运便在此刻定格"
   },
   "Chrysalis": {
     "NAME": "结茧",
-    "DESCRIPTION": "将一张 *羽化 放入抽牌堆。 其 NL 在本场战斗中耗能为0。 NL 消耗 。 NL 抽一张牌"
+    "DESCRIPTION": "将一张 *羽化 放入抽牌堆。 NL 其在本场战斗中耗能为0。 NL 消耗 。"
   },
   "Metamorphosis": {
     "NAME": "羽化",
-    "DESCRIPTION": "将一张3张 *攻击牌 和3张 *技能牌 放入抽牌堆。 其 NL 在本场战斗中耗能为0。 NL 消耗 。 NL 抽一张牌"
+    "DESCRIPTION": "将一张3张 *攻击牌 和3张 *技能牌 放入抽牌堆。 NL  其在本场战斗中耗能为0。 NL 消耗 。"
   },
   "Coolheaded": {
     "NAME": "冷静头脑",
@@ -221,8 +221,13 @@
   },
   "Heatsinks": {
     "NAME": "散热片",
-    "DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": "你的 *灼伤 可以被打出 ，NL 打出 *灼伤 时， 抽 !M! 张牌。"
+    "DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出， NL 打出 *灼伤 时，进入 愤怒 并抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出 ， NL 打出 *灼伤 时，进入 愤怒 并抽 !M! 张牌。"
+  },
+  "Turbo": {
+    "NAME": "内核加速",
+    "DESCRIPTION": " 你的电脑cpu每有三个内核， 获得 [B] 。 NL 将一张 *虚空 放入你的弃牌堆中。",
+    "UPGRADE_DESCRIPTION": "你的电脑cpu每有两个内核， 获得 [B] 。 NL 将一张 *虚空 放入你的弃牌堆中。"
   },
 
   "Disarm": {
@@ -254,7 +259,7 @@
 },"Chongbiancheng": {
   "NAME": "重编程",
   "DESCRIPTION": "选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手",
-  "UPGRADE_DESCRIPTION": " 选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手"
+  "UPGRADE_DESCRIPTION": " 选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手 NL 或者观者 "
 },"Thunderclap": {
   "NAME": "闪电霹雳",
   "DESCRIPTION": "每有一个敌人，生成一个 闪电充能球 ",

@@ -27,6 +27,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.megacrit.cardcrawl</groupId>
             <artifactId>slaythespire</artifactId>
@@ -62,6 +63,7 @@
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/2788071529/ExtendedUI.jar</systemPath>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -76,6 +78,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>

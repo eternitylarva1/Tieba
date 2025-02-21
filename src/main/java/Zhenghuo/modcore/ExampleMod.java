@@ -2,9 +2,8 @@ package Zhenghuo.modcore;
 
 import Zhenghuo.card.*;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
-import Zhenghuo.patchs.MonsterAddFieldsPatch;
+import Zhenghuo.relics.CultistMask;
 import Zhenghuo.relics.StrongCharacter;
-import Zhenghuo.utils.Calculate;
 import Zhenghuo.utils.ScreenDarkener;
 import basemod.AutoAdd;
 import basemod.BaseMod;
@@ -12,24 +11,15 @@ import basemod.abstracts.CustomSavable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.GameActionManager;
-import com.megacrit.cardcrawl.cards.blue.Defragment;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import extendedui.EUIRM;
 import extendedui.ui.controls.EUITextBoxInput;
-import extendedui.ui.hitboxes.EUIHitbox;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -37,13 +27,13 @@ import java.util.ArrayList;
 import static Zhenghuo.actions.ChangePlayerAction.ChangePlayer;
 import static com.megacrit.cardcrawl.core.Settings.language;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
-import static extendedui.ui.EUIBase.scale;
 
 
 @SpireInitializer
-public class ExampleMod implements PostBattleSubscriber,OnPlayerTurnStartSubscriber,EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
+public class ExampleMod implements PostInitializeSubscriber,PostBattleSubscriber,OnPlayerTurnStartSubscriber,EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
 public static String NowPlayer=null;
-
+public static String Tips="";
+public static boolean StartRecord=false;
     public ExampleMod() {
         BaseMod.subscribe(this); // 告诉basemod你要订阅事件
         BaseMod.addSaveField("Tieba", this);
@@ -51,7 +41,7 @@ public static String NowPlayer=null;
 
     public static void initialize() {
         new ExampleMod();
-    }
+           }
 
     // 当basemod开始注册mod卡牌时，便会调用这个函数
 
@@ -83,7 +73,7 @@ public static String NowPlayer=null;
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new StrongCharacter(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-
+       //BaseMod.addRelic(new CultistMask(), RelicType.SHARED);
     }
     @Override
     public void receiveEditKeywords() {
@@ -174,6 +164,13 @@ public static ArrayList<EUITextBoxInput> UITorenders = new ArrayList<>();
 
 
 
+        }*/
+    }
+
+    @Override
+    public void receivePostInitialize() {/*
+        for(int i=0;i<35;i++) {
+            CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.WATCHER).getCharStat().incrementVictory();
         }*/
     }
 }
