@@ -2,7 +2,9 @@ package Zhenghuo.modcore;
 
 import Zhenghuo.card.*;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
+import Zhenghuo.relics.CultistMask;
 import Zhenghuo.relics.StrongCharacter;
+import Zhenghuo.utils.ScreenDarkener;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
@@ -13,14 +15,14 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import extendedui.ui.controls.EUITextBoxInput;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import static Zhenghuo.actions.ChangePlayerAction.ChangePlayer;
 import static com.megacrit.cardcrawl.core.Settings.language;
@@ -28,8 +30,10 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
 
 
 @SpireInitializer
-public class ExampleMod implements EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, PostBattleSubscriber,CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
+public class ExampleMod implements PostInitializeSubscriber,PostBattleSubscriber,OnPlayerTurnStartSubscriber,EditKeywordsSubscriber,PostDungeonInitializeSubscriber,OnStartBattleSubscriber, CustomSavable<String>,EditCardsSubscriber, EditStringsSubscriber , EditRelicsSubscriber { // 实现接口
 public static String NowPlayer=null;
+public static String Tips="";
+public static boolean StartRecord=false;
     public ExampleMod() {
         BaseMod.subscribe(this); // 告诉basemod你要订阅事件
         BaseMod.addSaveField("Tieba", this);
@@ -37,7 +41,7 @@ public static String NowPlayer=null;
 
     public static void initialize() {
         new ExampleMod();
-    }
+           }
 
     // 当basemod开始注册mod卡牌时，便会调用这个函数
 
@@ -48,6 +52,7 @@ public static String NowPlayer=null;
                 .packageFilter(Soul_P.class) // 寻找所有和此类同一个包及内部包的类（本例子是所有卡牌）
                 .setDefaultSeen(true) // 是否将卡牌标为可见
                 .cards(); // 开始批量添加卡牌
+
     }
 
     @Override
@@ -64,11 +69,11 @@ public static String NowPlayer=null;
             }
 
 
-
+    public static ArrayList<ScreenDarkener> screendarkeners=new ArrayList();
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new StrongCharacter(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-
+       //BaseMod.addRelic(new CultistMask(), RelicType.SHARED);
     }
     @Override
     public void receiveEditKeywords() {
@@ -87,16 +92,17 @@ public static String NowPlayer=null;
                 BaseMod.addKeyword("tieba", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
             }
         }}
+    public static AbstractPlayer.PlayerClass morengcharacter;
     @Override
     public String onSave() {
         System.out.println("正在保存");
-      ChangePlayer(NowPlayer);
+        ChangePlayer(NowPlayer);
      return NowPlayer;
 
     }
     @Override
     public void onLoad(String s) {
-        OtherPlayerHelper.clearMinions(player);
+
         NowPlayer=s;
         System.out.println("成功加载");
         ChangePlayer(NowPlayer);
@@ -115,17 +121,56 @@ public static String NowPlayer=null;
 
 
     }
-    public static AbstractPlayer.PlayerClass InitialPlayerclass=null;
+
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
+
         OtherPlayerHelper.clearMinions(player);
+        UITorenders.clear();
+        for (ScreenDarkener screenDarkener : screendarkeners) {
+            screenDarkener.dispose();
+        }
+        screendarkeners.clear();
     }
 
     @Override
     public void receivePostDungeonInitialize() {
         if(!Settings.isEndless){
             NowPlayer = null;
+            morengcharacter=player.chosenClass;
         }
-        InitialPlayerclass=player.chosenClass;
+
+    }
+public static ArrayList<EUITextBoxInput> UITorenders = new ArrayList<>();
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        //todo 尝试完成结算题目的逻辑
+        /*
+        if(GameActionManager.turn==1){
+            for (AbstractMonster monster : getCurrRoom().monsters.monsters) {
+                 final EUITextBoxInput descriptionInput;
+                descriptionInput=(EUITextBoxInput) new EUITextBoxInput(EUIRM.images.rectangularButton.texture(),
+                        new EUIHitbox(monster.drawX-30, monster.drawY+monster.hb_h*1.5f, scale(100), scale(40)).setIsPopupCompatible(true))
+                        .setHeader(FontHelper.topPanelAmountFont, 0.8f, Settings.GOLD_COLOR, "请输入答案")
+                        .setHeaderSpacing(1f)
+                        .setColors(Color.GRAY, Settings.CREAM_COLOR)
+                        .setAlignment(0.5f, 0.1f)
+                        .setFont(FontHelper.cardDescFont_N, 0.8f)
+                        .setBackgroundTexture(EUIRM.images.rectangularButton.texture());
+                UITorenders.add(descriptionInput);
+                MonsterAddFieldsPatch.f_Inputers.set(monster,descriptionInput);
+                MonsterAddFieldsPatch.f_questions.set(monster,Calculate.generateMathQuestion());
+            }
+
+
+
+        }*/
+    }
+
+    @Override
+    public void receivePostInitialize() {/*
+        for(int i=0;i<35;i++) {
+            CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.WATCHER).getCharStat().incrementVictory();
+        }*/
     }
 }

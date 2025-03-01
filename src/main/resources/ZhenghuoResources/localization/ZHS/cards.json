@@ -19,7 +19,224 @@
   "NAME": "重启",
   "DESCRIPTION": "重新开始这把游戏",
   "UPGRADE_DESCRIPTION": "重新开始这把游戏"
-},"JianXiao": {
+},"Feel No Pain": {
+  "NAME": "无惧疼痛",
+  "DESCRIPTION": "本回合，删除你的受伤动画",
+  "UPGRADE_DESCRIPTION": "本回合，删除你的受伤动画 NL 保留",
+  "FLAVOR": "因为动画大于一切，所以没有受伤动画=不会受伤"
+},
+  "Calculated Gamble": {
+    "NAME": "计算下注",
+    "DESCRIPTION": "弃掉所有牌。你必须在5秒内做一道算术题（三选一）。 NL 如果答对了可以抽弃掉牌数+1的牌，答错或没回答则抽1张牌",
+    "UPGRADE_DESCRIPTION": "弃掉所有牌。你必须在10秒内做一道算术题（三选一）。NL 如果答对了可以抽弃掉牌数+1的牌，答错或没回答则抽2张牌",
+    "FLAVOR": "Baka!Baka!"
+  }, "Backstab": {
+    "NAME": "背刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 如果敌人被你 tieba:夹击 ，将其击杀",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 如果敌人被 tieba:夹击 ，将其击杀",
+    "FLAVOR": "当敌人自以为安全时，我的匕首已经划破了他们的咽喉。"
+  },"AscendersBane": {
+  "NAME": "进阶之灾",
+  "DESCRIPTION": "加入卡组时，将进阶数+1 NL 虚无 NL 不能打出",
+  "UPGRADE_DESCRIPTION": "加入卡组时，将进阶数+2 NL 虚无 NL 不能打出",
+  "FLAVOR": "我玩的不是a19吗？怎么有两个boss？。"
+},"Doubt": {
+  "NAME": "疑虑",
+  "DESCRIPTION": "在手牌时，每次出牌之前都需要确认 NL 不能被打出",
+  "UPGRADE_DESCRIPTION": "在手牌时，每次出牌之前都需要确认 NL 无法逃脱",
+  "FLAVOR": "我到底是先上刀还是先喝酒？"
+},
+  "Concentrate": {
+  "NAME": "全神贯注",
+  "DESCRIPTION": "丢弃 !M! 张牌 NL 获得2点 集中 ",
+  "UPGRADE_DESCRIPTION": "丢弃 !M! 张牌 NL 获得2点 集中 ",
+  "FLAVOR": "这张牌为什么是绿卡？"
+},
+  "Blood for Blood": {
+    "NAME": "以血还血",
+    "DESCRIPTION": "受到伤害时，对所有敌人造成等量伤害",
+    "UPGRADE_DESCRIPTION": "受到伤害时，对所有敌人造成双倍伤害",
+    "FLAVOR": "哪个敢动我！ 伤我者，十倍奉还！"
+  },"Blizzard": {
+    "NAME": "暴雪",
+    "DESCRIPTION": "所有角色动画和技能特效在触发时随机出现延迟（0.5～1 秒）",
+    "UPGRADE_DESCRIPTION": "所有角色动画和技能特效在触发时随机出现延迟（1～1.5 秒）",
+    "FLAVOR": "这个机器人装载了暴雪的服务器"
+  },"Buffer": {
+  "NAME": "缓冲",
+  "DESCRIPTION": "阻止下一次你受到的生命值损伤。本卡在卡组中时，你在坠落事件中优先失去这张牌",
+  "UPGRADE_DESCRIPTION": "阻止下两次你受到的生命值损伤。本卡在卡组中时，你在坠落事件中优先失去这张牌",
+  "FLAVOR": "别摔我的回想形态！！"
+},"AugrmentAttack": {
+  "NAME": "选项",
+  "DESCRIPTION": "",
+  "UPGRADE_DESCRIPTION": "",
+  "FLAVOR": ""
+},"Defragment": {
+  "NAME": "碎片整理",
+  "DESCRIPTION": "造成你C盘剩余空间的伤害(G) NL C盘每有200GB总空间,本牌费用+1 NL 目前剩余空间 !D! G",
+  "UPGRADE_DESCRIPTION": "造成你C盘剩余空间的伤害(G) NL C盘每有300GB总空间,本牌费用+1 NL 目前剩余空间 !D! G",
+  "FLAVOR": "是时候该清理下c盘了"
+},"PiercingWail": {
+  "NAME": "尖啸",
+  "DESCRIPTION": "所有敌人失去 游戏音量百分比 力量 1回合。 NL 消耗 。目前为 !M!  ",
+  "FLAVOR": "当你尖啸怪物，同时游戏也在尖啸你"
+},
+
+  "BecomeAlmighty": {
+    "NAME": "力大无穷",
+    "DESCRIPTION": "你的力量图标将变得非常大，并且你的力量没有上限",
+    "FLAVOR": "我的力量无人能及！"
+  },
+  "LiveForever": {
+    "NAME": "永生不死",
+    "DESCRIPTION": "当你死亡后，你可以回到死亡前的存档继续游戏",
+    "FLAVOR": "我有一种能回到死前几分钟的超能力！"
+  },
+  "FameAndFortune": {
+    "NAME": "名利双收",
+    "DESCRIPTION": "获得 !M! 金币。怪物见到你时会和你打招呼",
+    "FLAVOR": "我抄，盒！"
+  },
+  "FTL": {
+    "NAME": "超越光速",
+    "DESCRIPTION": "造成 !D! 点伤害。 tieba:回溯 2 NL 如果你在这回合打出的牌数少于 !M! 张，抽一张牌。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已打出",
+      " 张牌。）",
+      " 张牌。）"
+    ],
+    "FLAVOR": "在理论的边缘遐想，若真能跨越光速的壁垒，或许能在时间的褶皱中寻回失落的契机。"
+  },"Infinite Blades": {
+  "NAME": "无限刀刃",
+  "DESCRIPTION": "打出技能牌时，将一张 *小刀 加入手牌",
+  "UPGRADE_DESCRIPTION": "打出技能牌时，将一张 *小刀 加入手牌 NL 固有",
+  "FLAVOR": "布豪，是牢头！快使用逃脱计划！"
+},"Darkness": {
+  "NAME": "漆黑",
+  "DESCRIPTION": "本场战斗场景亮度减低10% NL 生成一个黑球 NL 你的屏幕亮度每降低10%，黑球伤害增加50%",
+  "UPGRADE_DESCRIPTION": "本场场景亮度减低10% NL 生成一个黑球 NL 你的屏幕亮度每降低10%，黑球伤害增加100%",
+  "FLAVOR": "我怎么什么都看不见了？哦，原来我成为观者了"
+},"Clash": {
+  "NAME": "交锋",
+  "DESCRIPTION": "只有在所有敌人意图都是攻击时才能被打出。 NL 造成 !D! 点伤害。",
+  "EXTENDED_DESCRIPTION": [
+    "有敌人的意图不是攻击。"
+  ],
+  "FLAVOR": "敌人攻击我攻击"
+},"Escape Plan": {
+  "NAME": "逃脱计划",
+  "DESCRIPTION": "抽1张牌。 NL 如果你拥有buff *计划妥当 ，逃离这张战斗，否则将一张 *计划妥当 加入弃牌堆",
+  "FLAVOR": "溜了溜了"
+},"Dramatic Entrance": {
+  "NAME": "闪亮登场",
+  "DESCRIPTION": " 固有 。 NL 释放一次闪光弹，有50%概率 tieba:致盲 敌人 NL 对所有敌人造成 !D! 点伤害。 NL 消耗 。",
+  "FLAVOR": "啊！我的眼睛！"
+},"WheelKick": {
+  "NAME": "回环踢",
+  "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 如果敌人带有金冠，使其失去金冠，并战斗奖励增加一个 *破损的金冠 ",
+  "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌 NL 如果敌人带有金冠，使其失去金冠，战斗奖励增加一个 *破损的金冠 。",
+  "FLAVOR": "羡慕第一勇士"
+},
+  "Evaluate": {
+  "NAME": "评估",
+  "DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得20点格挡。",
+  "UPGRADE_DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得30点格挡。",
+    "FLAVOR": "刷好评是吧"
+},"Unload": {
+  "NAME": "乾坤一掷",
+  "DESCRIPTION": "将游戏背景和战斗ui丢出去，对所有敌人造成 !D! 点伤害 NL 消耗",
+  "UPGRADE_DESCRIPTION": "将游戏背景丢出去，对所有敌人造成 !D! 点伤害 消耗",
+  "FLAVOR": "触屏党：？"
+},
+  "Stack": {
+  "NAME": "堆栈",
+  "DESCRIPTION": "洗牌时，按后进先出的顺序将卡牌移入抽牌堆",
+  "UPGRADE_DESCRIPTION": "固有 洗牌时，按后进先出的顺序将卡牌移入抽牌堆",
+    "FLAVOR": "什么时候出个队列",
+  "EXTENDED_DESCRIPTION": [
+    " NL （共有 !B! 张牌 。）"
+  ]
+
+},
+  "Distraction": {
+    "NAME": "声东击西",
+    "DESCRIPTION": "本回合，你的攻击改为对选中的目标以外的所有怪物造成伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "本回合，你的攻击改为对选中的目标以外的所有怪物造成伤害。NL 消耗 NL 保留 "
+
+  },
+  "Omniscience": {
+    "NAME": "通晓万物",
+    "DESCRIPTION": "从所有牌中选择一张，加入抽牌堆 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从所有牌中选择一张，加入手牌 NL 消耗",
+    "FLAVOR": "另一个方案是选择一张牌，打开其wiki百科界面"
+  },
+  "Judgement": {
+    "NAME": "审判",
+    "DESCRIPTION": "如果目标敌人的生命值小于等于你当前角色的最大连胜， NL 则将其生命值变为0。",
+    "FLAVOR": "马太效应",
+    "EXTENDED_DESCRIPTION": [
+      "审判"
+    ]
+
+  }, "All Out Attack": {
+  "NAME": "全力攻击",
+  "DESCRIPTION": "依次对随机敌人打出手中所有攻击牌。 NL 如果手中没有攻击牌，则对所有敌人造成 !D! 点伤害"
+},
+  "Halt": {
+    "NAME": "停顿",
+    "DESCRIPTION": "打出后，本局游戏的计时将停止，再次打出后恢复",
+    "FLAVOR": "竞速神卡"
+  },
+
+  "Bloodletting": {
+    "NAME": "放血",
+    "DESCRIPTION": "失去 1 点生命。",
+    "UPGRADE_DESCRIPTION": "失去 1 点生命。打出后回到手牌",
+    "FLAVOR": "疼痛弱化版"
+  },
+  "Glass Knife": {
+    "NAME": "玻璃刀刃",
+    "DESCRIPTION": "造成 !D! 点伤害两次。 NL 这张牌被打出时有25%概率被 消耗 并移出卡组。",
+    "FLAVOR": "什么小丑牌"
+  },
+  "Grand Finale": {
+    "NAME": "华丽收场",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 打出后，如果战斗没有结束，则死亡 ",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 打出后，如果战斗没有结束，则死亡  。 ",
+    "FLAVOR": "无论成败，我的命运便在此刻定格"
+  },
+  "Chrysalis": {
+    "NAME": "结茧",
+    "DESCRIPTION": "将一张 *羽化 放入抽牌堆。 NL 其在本场战斗中耗能为0。 NL 消耗 。"
+  },
+  "Metamorphosis": {
+    "NAME": "羽化",
+    "DESCRIPTION": "将一张3张 *攻击牌 和3张 *技能牌 放入抽牌堆。 NL  其在本场战斗中耗能为0。 NL 消耗 。"
+  },
+  "Coolheaded": {
+    "NAME": "冷静头脑",
+    "DESCRIPTION": "进入 平静 。 NL 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "进入 平静 。 NL 抽 !M! 张牌。"
+  },
+  "Heatsinks": {
+    "NAME": "散热片",
+    "DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出， NL 打出 *灼伤 时，进入 愤怒 并抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出 ， NL 打出 *灼伤 时，进入 愤怒 并抽 !M! 张牌。"
+  },
+  "Turbo": {
+    "NAME": "内核加速",
+    "DESCRIPTION": " 你的电脑cpu每有三个内核， 获得 [B] 。 NL 将一张 *虚空 放入你的弃牌堆中。",
+    "UPGRADE_DESCRIPTION": "你的电脑cpu每有两个内核， 获得 [B] 。 NL 将一张 *虚空 放入你的弃牌堆中。"
+  },
+
+  "Disarm": {
+    "NAME": "缴械",
+    "DESCRIPTION": "使所有有武器的敌人失去 !M! 点 力量 。 并且失去武器  NL 消耗 。",
+    "FLAVOR": "非常合理呀"
+  },
+
+  "JianXiao": {
   "NAME": "尖啸",
   "DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 ",
   "UPGRADE_DESCRIPTION": "你拥有 tieba:开腔的欲望 NL 消耗 "
@@ -42,7 +259,7 @@
 },"Chongbiancheng": {
   "NAME": "重编程",
   "DESCRIPTION": "选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手",
-  "UPGRADE_DESCRIPTION": " 选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手"
+  "UPGRADE_DESCRIPTION": " 选择： NL 将你的角色变为铁甲战士 NL 或者静默猎手 NL 或者观者 "
 },"Thunderclap": {
   "NAME": "闪电霹雳",
   "DESCRIPTION": "每有一个敌人，生成一个 闪电充能球 ",
@@ -53,12 +270,12 @@
   "UPGRADE_DESCRIPTION": "消耗所有牌，将最近一次胜利的卡组加入抽牌堆 NL 消耗 "
 },"Xingyunyiji": {
   "NAME": "幸运一击",
-  "DESCRIPTION": "消耗一枚古钱币，造成300点伤害。如果没有古钱币则改为失去 !M!金币",
-  "UPGRADE_DESCRIPTION": "消耗一枚古钱币，造成300点伤害。如果没有古钱币则改为失去!M!金币 "
+  "DESCRIPTION": "造成 !D! 点伤害，50%概率额外打出一张本牌的复制",
+  "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，50%概率额外打出一张本牌的复制"
 },"Tengyue": {
   "NAME": "腾跃",
-  "DESCRIPTION": "咔咔们会认为你是 tieba:觉醒者 tieba:。",
-  "UPGRADE_DESCRIPTION": "咔咔们会认为你是 tieba:觉醒者 tieba:。 "
+  "DESCRIPTION": "绕到敌人背后，获得一个新的回合",
+  "UPGRADE_DESCRIPTION": "绕到敌人背后，获得一个新的回合"
 }
 
 

@@ -1,5 +1,7 @@
 package Zhenghuo.relics;
 
+import ChatterMod.MainModfile;
+import ChatterMod.actions.RecordAndPlaybackAction;
 import Zhenghuo.actions.ChangePlayerAction;
 import Zhenghuo.effects.LoseReliceffect;
 import Zhenghuo.helpers.ModHelper;
@@ -7,6 +9,9 @@ import Zhenghuo.modcore.ExampleMod;
 import Zhenghuo.utils.Invoker;
 import basemod.abstracts.CustomRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.Defect;
@@ -21,6 +26,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
+import com.megacrit.cardcrawl.powers.RitualPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -37,9 +43,9 @@ import static com.megacrit.cardcrawl.helpers.PotionHelper.potions;
 // 继承CustomRelic
 public class StrongCharacter extends CustomRelic implements ClickableRelic {
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
-    public static final String ID = ModHelper.makePath("StrongCharacter");
+    public static final String ID = ModHelper.makePath("CultistMask");
     // 图片路径
-    private static final String IMG_PATH = "ZhenghuoResources/images/relics/bell.png";
+    private static final String IMG_PATH = "ZhenghuoResources/images/relics/cultistMask.png";
     // 遗物类型
     private static final RelicTier RELIC_TIER = RelicTier.RARE;
     // 点击音效
@@ -59,10 +65,30 @@ public class StrongCharacter extends CustomRelic implements ClickableRelic {
         return new StrongCharacter();
 
     }
+    public void atBattleStart() {
+        this.flash();
+        addToBot(new RecordAndPlaybackAction(f -> {
+            MainModfile.logger.info("Chatter Volume: " + f);
+            ExampleMod.Tips="目前音量为"+f;
+            int i= (int) (Math.pow(1.053, f-25)*0.5f);
+            if(i>0) {
+                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RitualPower(AbstractDungeon.player, i, true), i));
+                this.addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        ExampleMod.StartRecord = false;
+                        isDone = true;
+                    }
+                });
+            }
+        }));
+        this.addToBot(new TalkAction(true, this.DESCRIPTIONS[1], 1.0F, 2.0F));
 
+    }
     @Override
     public void onRightClick() {
-initizeGame();
+        /*
+initizeGame();*/
     }
     public void onEnterRoom(AbstractRoom room)
     {

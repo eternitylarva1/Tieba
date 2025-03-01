@@ -5,8 +5,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbGreen;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbPurple;
@@ -31,6 +34,7 @@ public ChangePlayerAction(String Player)
     NowPlayer=this.Player;
     ChangePlayer(this.Player);
     this.isDone=true;
+    System.out.println("执行角色变成"+NowPlayer);
     }
 
     public static void ChangePlayerPool(String Player)
@@ -53,7 +57,6 @@ public ChangePlayerAction(String Player)
             case "TheSilent":
                 CardLibrary.addGreenCards(tmpPool);
                 break;
-
             case "Watcher":
                 CardLibrary.addPurpleCards(tmpPool);
                 break;
@@ -87,26 +90,42 @@ public ChangePlayerAction(String Player)
     }
     }
     public static void ChangePlayerSkin(String Player)
-    { switch (Player) {
+    {  if (player == null) {
+        System.err.println("Error: player is null");
+        return;
+    }
+        if (overlayMenu == null || overlayMenu.energyPanel == null) {
+        return;
+        }
+
+            switch (Player) {
+
         case"Ironclad":
             Invoker.invoke(player, "loadAnimation","images/characters/ironclad/idle/skeleton.atlas", "images/characters/ironclad/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
-            //player.chosenClass= AbstractPlayer.PlayerClass.IRONCLAD;
-            break;
+           // player.chosenClass = AbstractPlayer.PlayerClass.IRONCLAD;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.RED_ORB_FLASH_VFX);
+
+    break;
         case"TheSilent":
             Invoker.invoke(player, "loadAnimation", "images/characters/theSilent/idle/skeleton.atlas", "images/characters/theSilent/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
-            //player.chosenClass= AbstractPlayer.PlayerClass.THE_SILENT;
+           // player.chosenClass = AbstractPlayer.PlayerClass.THE_SILENT;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.GREEN_ORB_FLASH_VFX);
             break;
         case "Defect":
             Invoker.invoke(player, "loadAnimation", "images/characters/defect/idle/skeleton.atlas", "images/characters/defect/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
-            //player.chosenClass= AbstractPlayer.PlayerClass.DEFECT;
+          //  player.chosenClass = AbstractPlayer.PlayerClass.DEFECT;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.BLUE_ORB_FLASH_VFX);
+
             break;
         case"Watcher":
             Invoker.invoke(player, "loadAnimation", "images/characters/watcher/idle/skeleton.atlas", "images/characters/watcher/idle/skeleton.json", 1.0F);
             player.state.setAnimation(0, "Idle", true);
-            //player.chosenClass= AbstractPlayer.PlayerClass.WATCHER;
+          //  player.chosenClass = AbstractPlayer.PlayerClass.WATCHER;
+            Invoker.setField(overlayMenu.energyPanel,"gainEnergyImg",ImageMaster.PURPLE_ORB_FLASH_VFX);
+
             break;
     }
     ///public static void ChangePlayerSkin(String Player)
@@ -125,7 +144,9 @@ public ChangePlayerAction(String Player)
 
     }
     public static void ChangePlayer(String Player)
-    {if(Player!=null) {
+    {
+        if(Player!=null) {
+            ChangePlayerSkin(Player);
         switch (Player) {
             case"Ironclad":
                 player.shoulderImg = ImageMaster.loadImage("images/characters/ironclad/shoulder2.png");
@@ -134,6 +155,7 @@ public ChangePlayerAction(String Player)
                 Invoker.setField(topPanel, "title", Ironclad.NAMES[0]);
                 Invoker.setField(player, "energyOrb", new EnergyOrbRed());
                 ChangePlayerPool(Player);
+
                 break;
             case"TheSilent":
                 player.shoulderImg = ImageMaster.loadImage("images/characters/theSilent/shoulder2.png");
@@ -164,7 +186,28 @@ public ChangePlayerAction(String Player)
         }
     }
 
+
     };
+
+public static AbstractPlayer getPlayerClass() {
+    if(NowPlayer==null){
+        return player;
+    }
+    switch (NowPlayer)
+    {
+        case"Ironclad":
+            return CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.IRONCLAD);
+        case"TheSilent":
+            return CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.THE_SILENT);
+        case "Defect":
+            return CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.DEFECT);
+        case"Watcher":
+            return CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.WATCHER);
+        default:
+            return player;
+    }
+
+}
 
 }
 
