@@ -15,7 +15,7 @@ public class Shengdongjixi extends AbstractCard {
     private static final CardStrings cardStrings;
 
     public Shengdongjixi() {
-        super("Distraction", cardStrings.NAME, "green/attack/unload", 1, cardStrings.DESCRIPTION, CardType.POWER, CardColor.GREEN, CardRarity.RARE, CardTarget.ENEMY);
+        super("Distraction", cardStrings.NAME, "green/skill/distraction", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.NONE);
         this.baseDamage = 14;
         this.magicNumber = -1;
     }
