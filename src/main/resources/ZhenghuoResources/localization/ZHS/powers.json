@@ -1,9 +1,9 @@
 {
-  "Tieba:ExamplePower": {
-    "NAME": "示例能力",
+  "Tieba:ShengdongjixiPower": {
+    "NAME": "声东击西",
     "DESCRIPTIONS": [
-      "当你受到 #y未被格挡 的攻击伤害时，回复 #b",
-      " 点生命。"
+      "当你打出 #y攻击牌 时，改为对所有其他敌人造成 #b等量",
+      " 伤害"
     ]
   }
 }
