@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import extendedui.ui.controls.EUITextBoxInput;
@@ -66,7 +67,7 @@ public static boolean StartRecord=false;
         BaseMod.loadCustomStringsFile(CardStrings.class, "ZhenghuoResources/localization/" + lang + "/cards.json"); // 加载相应语言的卡牌本地化内容。
 
         BaseMod.loadCustomStringsFile(RelicStrings.class, "ZhenghuoResources/localization/" + lang + "/relics.json");// 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
-        BaseMod.loadCustomStringsFile(RelicStrings.class, "ZhenghuoResources/localization/" + lang + "/powers.json");// 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
+        BaseMod.loadCustomStringsFile(PowerStrings.class, "ZhenghuoResources/localization/" + lang + "/powers.json");// 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
 
     }
 
