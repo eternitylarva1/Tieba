@@ -66,7 +66,9 @@ public static boolean StartRecord=false;
         BaseMod.loadCustomStringsFile(CardStrings.class, "ZhenghuoResources/localization/" + lang + "/cards.json"); // 加载相应语言的卡牌本地化内容。
 
         BaseMod.loadCustomStringsFile(RelicStrings.class, "ZhenghuoResources/localization/" + lang + "/relics.json");// 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
-            }
+        BaseMod.loadCustomStringsFile(RelicStrings.class, "ZhenghuoResources/localization/" + lang + "/powers.json");// 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
+
+    }
 
 
     public static ArrayList<ScreenDarkener> screendarkeners=new ArrayList();

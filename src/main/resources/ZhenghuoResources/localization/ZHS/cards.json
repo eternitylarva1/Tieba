@@ -140,14 +140,13 @@
 },
   "Evaluate": {
   "NAME": "评估",
-  "DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得20点格挡。",
-  "UPGRADE_DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得30点格挡。",
+  "DESCRIPTION": "如果你steam上对杀戮尖塔的评价是推荐，则获得20点格挡。(目前为推荐)",
+  "UPGRADE_DESCRIPTION": "打开杀戮尖塔steam评论区。如果你的评价是推荐，则获得30点格挡。(目前为推荐)",
     "FLAVOR": "刷好评是吧"
 },"Unload": {
   "NAME": "乾坤一掷",
-  "DESCRIPTION": "将游戏背景和战斗ui丢出去，对所有敌人造成 !D! 点伤害 NL 消耗",
-  "UPGRADE_DESCRIPTION": "将游戏背景丢出去，对所有敌人造成 !D! 点伤害 消耗",
-  "FLAVOR": "触屏党：？"
+  "DESCRIPTION": "将游戏背景丢出去，对所有敌人造成 !D! 点伤害 3次 NL 消耗",
+  "FLAVOR": "在杀戮尖塔，实力不重要，重要的是你的“背景”够不够硬"
 },
   "Stack": {
   "NAME": "堆栈",
@@ -167,33 +166,34 @@
   },
   "Omniscience": {
     "NAME": "通晓万物",
-    "DESCRIPTION": "从所有牌中选择一张，加入抽牌堆 NL 消耗 。",
+    "DESCRIPTION": "从所有牌中选择一张，加入抽牌堆 NL 虚无 。",
     "UPGRADE_DESCRIPTION": "从所有牌中选择一张，加入手牌 NL 消耗",
     "FLAVOR": "另一个方案是选择一张牌，打开其wiki百科界面"
   },
-  "Judgement": {
-    "NAME": "审判",
+  "ThroughViolence": {
+    "NAME": "以暴易暴",
     "DESCRIPTION": "如果目标敌人的生命值小于等于你当前角色的最大连胜， NL 则将其生命值变为0。",
-    "FLAVOR": "马太效应",
+    "FLAVOR": "幸亏是观者牌",
     "EXTENDED_DESCRIPTION": [
       "审判"
     ]
 
   }, "All Out Attack": {
   "NAME": "全力攻击",
-  "DESCRIPTION": "依次对随机敌人打出手中所有攻击牌。 NL 如果手中没有攻击牌，则对所有敌人造成 !D! 点伤害"
+  "DESCRIPTION": "依次对随机敌人打出手中所有攻击牌。 NL 每因此打出一张牌，便对随机敌人造成 !D! 点伤害",
+  "FLAVOR": "这下不怕全力丢隐秘了"
 },
   "Halt": {
     "NAME": "停顿",
     "DESCRIPTION": "打出后，本局游戏的计时将停止，再次打出后恢复",
-    "FLAVOR": "竞速神卡"
+    "FLAVOR": "终于完成快速攀爬者这个成就了"
   },
 
   "Bloodletting": {
     "NAME": "放血",
     "DESCRIPTION": "失去 1 点生命。",
     "UPGRADE_DESCRIPTION": "失去 1 点生命。打出后回到手牌",
-    "FLAVOR": "疼痛弱化版"
+    "FLAVOR": "马上就要飞升类固醇星球了"
   },
   "Glass Knife": {
     "NAME": "玻璃刀刃",
@@ -206,14 +206,6 @@
     "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 打出后，如果战斗没有结束，则死亡  。 ",
     "FLAVOR": "无论成败，我的命运便在此刻定格"
   },
-  "Chrysalis": {
-    "NAME": "结茧",
-    "DESCRIPTION": "将一张 *羽化 放入抽牌堆。 NL 其在本场战斗中耗能为0。 NL 消耗 。"
-  },
-  "Metamorphosis": {
-    "NAME": "羽化",
-    "DESCRIPTION": "将一张3张 *攻击牌 和3张 *技能牌 放入抽牌堆。 NL  其在本场战斗中耗能为0。 NL 消耗 。"
-  },
   "Coolheaded": {
     "NAME": "冷静头脑",
     "DESCRIPTION": "进入 平静 。 NL 抽 !M! 张牌。",
@@ -224,6 +216,16 @@
     "DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出， NL 打出 *灼伤 时，进入 愤怒 并抽 !M! 张牌。",
     "UPGRADE_DESCRIPTION": "进入 平静 NL 你的 *灼伤 可以被打出 ， NL 打出 *灼伤 时，进入 愤怒 并抽 !M! 张牌。"
   },
+  "Bullet Time": {
+    "NAME": "子弹时间",
+    "DESCRIPTION": "接下来的1s，时间流速放缓10倍。在这1s内尝试打出的卡牌不消耗能量",
+    "FLAVOR": "当你打出这张牌，你就会被偷走10s的时间"
+  },
+  "Apotheosis": {
+    "NAME": "神化",
+    "DESCRIPTION": "在本场战斗中 升级 你的所有牌。 NL 消耗 。打出后，如果没有升级任何牌,则进入神格"
+  },
+
   "Turbo": {
     "NAME": "内核加速",
     "DESCRIPTION": " 你的电脑cpu每有三个内核， 获得 [B] 。 NL 将一张 *虚空 放入你的弃牌堆中。",
