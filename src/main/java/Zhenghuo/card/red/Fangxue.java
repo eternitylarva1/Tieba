@@ -1,4 +1,4 @@
-package Zhenghuo.card.purple;
+package Zhenghuo.card.red;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Fangxue extends AbstractCard {
-    public static final String ID = "Halt";
+    public static final String ID = "Bloodletting";
     private static final CardStrings cardStrings;
     private static final Metamorphosis metamorphosis=new Metamorphosis();
 
@@ -53,6 +53,6 @@ public class Fangxue extends AbstractCard {
     }
 
     static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings("Halt");
+        cardStrings = CardCrawlGame.languagePack.getCardStrings("Bloodletting");
     }
 }
