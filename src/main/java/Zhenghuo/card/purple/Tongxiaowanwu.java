@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.purple.Omniscience;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,14 +20,12 @@ import com.megacrit.cardcrawl.relics.BustedCrown;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
 public class Tongxiaowanwu extends AbstractCard {
-    public static final String ID = "WheelKick";
+    public static final String ID = "Omniscience";
     private static final CardStrings cardStrings;
 
     public Tongxiaowanwu() {
-        super("WheelKick", cardStrings.NAME, "purple/attack/wheel_kick", 2, cardStrings.DESCRIPTION, CardType.ATTACK, CardColor.PURPLE, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.exhaust = false;
-        this.baseMagicNumber=this.magicNumber=1;
-        this.baseDamage = 15;
+        super("Omniscience", cardStrings.NAME, "purple/skill/omniscience", 4, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.NONE);
+        this.exhaust = true;
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
     }
@@ -41,6 +40,8 @@ public class Tongxiaowanwu extends AbstractCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(5);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
 
     }
@@ -50,6 +51,6 @@ public class Tongxiaowanwu extends AbstractCard {
     }
 
     static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings("WheelKick");
+        cardStrings = CardCrawlGame.languagePack.getCardStrings("Omniscience");
     }
 }

@@ -39,6 +39,7 @@ public class Tingdun extends AbstractCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(5);
+
         }
 
     }

@@ -28,6 +28,8 @@ this.addToBot(new ApplyPowerAction(p,p,new ShengdongjixiPower(p,this.magicNumber
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(3);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
 
     }

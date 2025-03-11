@@ -44,6 +44,8 @@ public class Fangxue extends AbstractCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(5);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
 
     }

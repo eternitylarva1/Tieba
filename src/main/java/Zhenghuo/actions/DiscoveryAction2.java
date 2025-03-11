@@ -129,10 +129,12 @@ public class DiscoveryAction2 extends AbstractGameAction {
 
     private ArrayList<AbstractCard> generateCardChoices(AbstractCard.CardType type) {
         ArrayList<AbstractCard> derp = new ArrayList();
+        CardLibrary.addRedCards(derp);
+        CardLibrary.addGreenCards(derp);
+        CardLibrary.addBlueCards(derp);
+        CardLibrary.addPurpleCards(derp);
+        CardLibrary.addColorlessCards(derp);
         //遍历所有卡牌
-        for(AbstractCard card : CardLibrary.getAllCards()){
-            derp.add(card.makeCopy());
-        }
         return derp;
     }
 }
