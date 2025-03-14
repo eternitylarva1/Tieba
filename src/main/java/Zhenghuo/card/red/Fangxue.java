@@ -25,7 +25,11 @@ public class Fangxue extends AbstractCard {
         this.magicNumber = this.baseMagicNumber;
 
     }
-
+    public void update() {
+        super.update();
+        this.stopGlowing();
+        this.transparency = 0.0F;
+    }
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new LoseHPAction(p, p, 1));
         if(this.upgraded){
@@ -37,7 +41,7 @@ public class Fangxue extends AbstractCard {
                 }
             });
         }
-    
+
     }
 
     public void upgrade() {

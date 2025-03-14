@@ -279,7 +279,18 @@
   "NAME": "腾跃",
   "DESCRIPTION": "绕到敌人背后，获得一个新的回合",
   "UPGRADE_DESCRIPTION": "绕到敌人背后，获得一个新的回合"
-}
-
-
+},
+  "EmptyFist": {
+    "NAME": "化拳为空",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将你的手牌变 tieba:透明 "
+  },
+  "EmptyBody": {
+  "NAME": "化体为空",
+  "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的身体和四肢变 tieba:透明 "
+},
+  "EmptyMind": {
+    "NAME": "化智为空",
+    "DESCRIPTION": "抽 !M! 张牌。NL 将你的头部变 tieba:透明 ",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 将你的头部变 tieba:透明 "
+  }
 }

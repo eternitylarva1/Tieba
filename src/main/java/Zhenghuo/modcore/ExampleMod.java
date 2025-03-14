@@ -2,6 +2,7 @@ package Zhenghuo.modcore;
 
 import Zhenghuo.card.*;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
+import Zhenghuo.relics.Chameleon;
 import Zhenghuo.relics.CultistMask;
 import Zhenghuo.relics.StrongCharacter;
 import Zhenghuo.utils.ScreenDarkener;
@@ -76,7 +77,7 @@ public static boolean StartRecord=false;
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelic(new StrongCharacter(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-       //BaseMod.addRelic(new CultistMask(), RelicType.SHARED);
+       BaseMod.addRelic(new Chameleon(), RelicType.SHARED);
     }
     @Override
     public void receiveEditKeywords() {
