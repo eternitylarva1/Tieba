@@ -4,6 +4,7 @@ import Zhenghuo.relics.Chameleon;
 import Zhenghuo.utils.TextureUtils;
 import basemod.patches.com.megacrit.cardcrawl.core.CardCrawlGame.ApplyScreenPostProcessor;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -90,7 +91,7 @@ public class MonsterDisguisePatch {
 
                 // 初始化着色器
                 if (disguiseShader== null) {
-                    disguiseShader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/chameleon.fs");
+                    disguiseShader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/chameleonhand.fs");
                 }
                 ShaderProgram oldShader = sb.getShader();
                 sb.setShader(disguiseShader);
@@ -98,8 +99,27 @@ public class MonsterDisguisePatch {
                 disguiseShader.setUniformi("u_buffer", 1);
                 sb.draw(bg, 0, 0, bg.getWidth(), bg.getHeight(), 0, 0, bg.getWidth(), bg.getHeight(), false, true);
                 sb.setShader(oldShader);
-            }else{monsterBuffer.dispose();}
+            }
+            else{monsterBuffer.dispose();}
         }
+@SpireInsertPatch(rloc=4)
+public static void Graypatch(MonsterGroup _instance, SpriteBatch sb) {
+    if (shouldDisguise()) {
+        // 设置混合模式
+        sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+
+        // 渲染怪物到背景上
+        for (AbstractMonster m : _instance.monsters) {
+            m.render(sb);
+            if (_instance.hoveredMonster != null && !_instance.hoveredMonster.isDead && !_instance.hoveredMonster.escaped && AbstractDungeon.player.hoverEnemyWaitTimer < 0.0F && (!AbstractDungeon.isScreenUp || PeekButton.isPeeking)) {
+                _instance.hoveredMonster.renderTip(sb);
+            }
+        }
+
+        // 恢复默认混合模式
+        sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+    }
+}
 
         private static class PreLocator extends SpireInsertLocator {
             @Override

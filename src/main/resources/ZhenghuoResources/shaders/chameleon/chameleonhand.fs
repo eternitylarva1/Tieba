@@ -1,6 +1,6 @@
 #ifdef GL_ES
 #define LOWP lowp
-precision mediump float;
+precision highp float; // 修改为 highp 精度
 #else
 #define LOWP
 #endif
@@ -11,7 +11,7 @@ varying vec2 v_texCoord;
 uniform sampler2D u_texture;
 uniform vec2 u_resolution;
 
-void main(){
+void main() {
     vec2 texelSize = 1.0 / u_resolution;
     vec2 uv = v_texCoord;
 
@@ -27,7 +27,8 @@ void main(){
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
             vec2 offset = vec2(i, j) * texelSize;
-            vec3 sample = texture2D(u_texture, uv + offset).rgb;
+            vec2 sampleUV = clamp(uv + offset, 0.0, 1.0); // 确保采样坐标在 [0, 1] 范围内
+            vec3 sample = texture2D(u_texture, sampleUV).rgb;
             blurredColor += sample * blurKernel[i + 1][j + 1];
         }
     }
@@ -45,7 +46,7 @@ void main(){
          1.0,  2.0,  1.0
     );
 
-    float sobelThreshold = 0.3; // 增加阈值
+    float sobelThreshold = 0.5; // 增加阈值
 
     vec3 sobelXResult = vec3(0.0);
     vec3 sobelYResult = vec3(0.0);
@@ -53,7 +54,8 @@ void main(){
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
             vec2 offset = vec2(i, j) * texelSize;
-            vec3 sample = texture2D(u_texture, uv + offset).rgb;
+            vec2 sampleUV = clamp(uv + offset, 0.0, 1.0); // 确保采样坐标在 [0, 1] 范围内
+            vec3 sample = texture2D(u_texture, sampleUV).rgb;
             sobelXResult += sample * sobelX[i + 1][j + 1];
             sobelYResult += sample * sobelY[i + 1][j + 1];
         }
@@ -61,12 +63,8 @@ void main(){
 
     float edgeStrength = length(sobelXResult) + length(sobelYResult);
 
-    vec4 finalColor;
-    if (edgeStrength > sobelThreshold) {
-        finalColor = vec4(1.0, 1.0, 1.0, 1.0); // 白色线条
-    } else {
-        finalColor = vec4(0.0, 0.0, 0.0, 1.0); // 黑色背景
-    }
+    float smoothEdge = smoothstep(sobelThreshold - 0.1, sobelThreshold + 0.1, edgeStrength);
+    vec4 finalColor = mix(vec4(0.0, 0.0, 0.0, 1.0), vec4(1.0, 1.0, 1.0, 1.0), smoothEdge);
 
     gl_FragColor = finalColor;
 }
