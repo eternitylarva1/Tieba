@@ -3,8 +3,8 @@ package Zhenghuo.modcore;
 import Zhenghuo.card.*;
 import Zhenghuo.otherplayer.OtherPlayerHelper;
 import Zhenghuo.relics.Chameleon;
-import Zhenghuo.relics.CultistMask;
 import Zhenghuo.relics.StrongCharacter;
+import Zhenghuo.ui.TestButton;
 import Zhenghuo.utils.ScreenDarkener;
 import basemod.AutoAdd;
 import basemod.BaseMod;
@@ -172,7 +172,10 @@ public static ArrayList<EUITextBoxInput> UITorenders = new ArrayList<>();
     }
 
     @Override
-    public void receivePostInitialize() {/*
+    public void receivePostInitialize() {
+        BaseMod.addTopPanelItem(new TestButton());
+        /*
+
         for(int i=0;i<35;i++) {
             CardCrawlGame.characterManager.getCharacter(AbstractPlayer.PlayerClass.WATCHER).getCharStat().incrementVictory();
         }*/

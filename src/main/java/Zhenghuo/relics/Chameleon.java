@@ -24,6 +24,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.OverlayMenu;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
@@ -59,11 +61,16 @@ public class Chameleon extends CustomRelic {
     public static class DisguiseHandCard {
         private static FrameBuffer bgBuffer = null;
 
-        private static ShaderProgram chameleon_shader = null;
+        public static ShaderProgram chameleon_shader = null;
 
         public static boolean Disguising() {
-            return (GOTUtils.RoomAvailable() && AbstractDungeon.player.hasRelic(Chameleon.ID));
+            return false;
+            //(GOTUtils.RoomAvailable() && AbstractDungeon.player.hasRelic(Chameleon.ID));
         }
+
+
+
+
 
         public static class SetupBgBuffer {
             @SpireInsertPatch(locator = Locator.class)
@@ -73,6 +80,7 @@ public class Chameleon extends CustomRelic {
                         Chameleon.DisguiseHandCard.bgBuffer.dispose();
                     return;
                 }
+
                 if (Chameleon.DisguiseHandCard.bgBuffer == null)
                     Chameleon.DisguiseHandCard.bgBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
                 Chameleon.DisguiseHandCard.bgBuffer.begin();
@@ -121,7 +129,7 @@ public class Chameleon extends CustomRelic {
                     hand.bind(1);
                     bg.bind(0);
                     if (Chameleon.DisguiseHandCard.chameleon_shader == null)
-                        Chameleon.DisguiseHandCard.chameleon_shader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/chameleon.fs");
+                        Chameleon.DisguiseHandCard.chameleon_shader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/chameleonhand.fs");
                     ShaderProgram oldShader = sb.getShader();
                     sb.setShader(Chameleon.DisguiseHandCard.chameleon_shader);
                     Chameleon.DisguiseHandCard.chameleon_shader.setUniform2fv("u_resolution", new float[] { Gdx.graphics.getWidth(), Gdx.graphics.getHeight() }, 0, 2);
