@@ -91,13 +91,22 @@ public class MonsterDisguisePatch {
 
                 // 初始化着色器
                 if (disguiseShader== null) {
-                    disguiseShader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/chameleonhand.fs");
+                    disguiseShader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/glasseffect.fs");
                 }
                 ShaderProgram oldShader = sb.getShader();
                 sb.setShader(disguiseShader);
+                disguiseShader.setUniformi("u_texture", 0); // 设置纹理采样器
+
+                // 绘制怪物纹理以应用效果
+                sb.draw(monsterTex, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+                /*
+
                 disguiseShader.setUniform2fv("u_resolution", new float[]{Gdx.graphics.getWidth(), Gdx.graphics.getHeight()}, 0, 2);
                 disguiseShader.setUniformi("u_buffer", 1);
                 sb.draw(bg, 0, 0, bg.getWidth(), bg.getHeight(), 0, 0, bg.getWidth(), bg.getHeight(), false, true);
+               */
+
                 sb.setShader(oldShader);
             }
             else{monsterBuffer.dispose();}
