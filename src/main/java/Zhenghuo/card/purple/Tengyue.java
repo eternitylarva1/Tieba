@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.Study;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -54,7 +55,7 @@ public class Tengyue extends AbstractCard {
 
                   }
               }
-
+              Study
               isDone=true;
           }
       });

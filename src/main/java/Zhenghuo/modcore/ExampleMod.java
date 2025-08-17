@@ -95,7 +95,8 @@ public static boolean StartRecord=false;
                 // 这个id要全小写
                 BaseMod.addKeyword("tieba", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
             }
-        }}
+        }
+    }
     public static AbstractPlayer.PlayerClass morengcharacter;
     @Override
     public String onSave() {

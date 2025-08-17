@@ -51,10 +51,11 @@ public class MonsterDisguisePatch {
         }
 
 
-
+        public static float elapsedTime = 0.0F;
         @SpireInsertPatch(rloc=4)
         public static void beforeRenderMonster(MonsterGroup _instance, SpriteBatch sb) {
             if (shouldDisguise()) {
+                elapsedTime += Gdx.graphics.getDeltaTime();
                 // 创建怪物缓冲区
                 if (monsterBuffer == null) {
                     monsterBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
@@ -86,20 +87,19 @@ public class MonsterDisguisePatch {
 
                 // 获取怪物纹理
                 Texture monsterTex = monsterBuffer.getColorBufferTexture();
-                monsterTex.bind(1);
-                bg.bind(0);
 
                 // 初始化着色器
                 if (disguiseShader== null) {
                     disguiseShader = TextureUtils.GetShader("ZhenghuoResources/shaders/chameleon/glasseffect.fs");
                 }
+                disguiseShader.setUniformf("u_time", elapsedTime*10.0F); // elapsedTime 自己累积
+                disguiseShader.setUniformf("u_resolution", Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
                 ShaderProgram oldShader = sb.getShader();
                 sb.setShader(disguiseShader);
-                disguiseShader.setUniformi("u_texture", 0); // 设置纹理采样器
+
 
                 // 绘制怪物纹理以应用效果
                 sb.draw(monsterTex, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
                 /*
 
                 disguiseShader.setUniform2fv("u_resolution", new float[]{Gdx.graphics.getWidth(), Gdx.graphics.getHeight()}, 0, 2);
@@ -108,8 +108,11 @@ public class MonsterDisguisePatch {
                */
 
                 sb.setShader(oldShader);
+                sb.draw(bg, 0, 0, bg.getWidth(), bg.getHeight(), 0, 0, bg.getWidth(), bg.getHeight(), false, false);
             }
-            else{monsterBuffer.dispose();}
+            else{
+                if (monsterBuffer != null)
+                monsterBuffer.dispose();}
         }
 @SpireInsertPatch(rloc=4)
 public static void Graypatch(MonsterGroup _instance, SpriteBatch sb) {

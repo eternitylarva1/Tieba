@@ -59,9 +59,9 @@
     "FLAVOR": "哪个敢动我！ 伤我者，十倍奉还！"
   },"Blizzard": {
     "NAME": "暴雪",
-    "DESCRIPTION": "所有角色动画和技能特效在触发时随机出现延迟（0.5～1 秒）",
-    "UPGRADE_DESCRIPTION": "所有角色动画和技能特效在触发时随机出现延迟（1～1.5 秒）",
-    "FLAVOR": "这个机器人装载了暴雪的服务器"
+    "DESCRIPTION": "开一把炉石传说，如果胜利，则获得本场战斗胜利",
+    "UPGRADE_DESCRIPTION": "开一把炉石传说，如果胜利，则获得本场战斗胜利",
+    "FLAVOR": "我要焚烧这个世界 然后统治他的灰烬"
   },"Buffer": {
   "NAME": "缓冲",
   "DESCRIPTION": "阻止下一次你受到的生命值损伤。本卡在卡组中时，你在坠落事件中优先失去这张牌",
@@ -292,5 +292,83 @@
     "NAME": "化智为空",
     "DESCRIPTION": "抽 !M! 张牌。NL 将你的头部变 tieba:透明 ",
     "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 将你的头部变 tieba:透明 "
-  }
+  },"Anger": {
+  "NAME": "愤怒",
+  "DESCRIPTION": "造成 !D! 点伤害。 NL 进入 愤怒 将一张复制品加入弃牌堆 ",
+  "FLAVOR": "我真的很愤怒"
+},  "Seeing Red": {
+  "NAME": "盛怒",
+  "DESCRIPTION": "进入愤怒两次。 NL 消耗 。",
+  "FLAVOR": "我真的非常愤怒啊啊啊啊啊"
+},
+  "Searing Blow": {
+  "NAME": "灼热攻击",
+  "DESCRIPTION": "将6张灼伤加入到你的抽牌堆。每当你受到灼伤造成的伤害时，对随机一名敌人造成 !D! 点伤害",
+  "FLAVOR": "锟斤拷烫烫烫"
+},  "DeusExMachina": {
+  "NAME": "机械降神",
+  "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，进入 神格 消耗 ",
+  "FLAVOR": ""
+},  "Vigilance": {
+  "NAME": "警惕",
+  "DESCRIPTION": "本回合每次受到伤害时，获得 !B! 点 格挡 。",
+  "UPGRADE_DESCRIPTION": "DEPRECATED",
+  "FLAVOR": "小心地滑！(摔倒)"
+}, "Prepared": {
+  "NAME": "早有准备",
+  "DESCRIPTION": "如果这张牌在卡组中，战斗开始时视为你拥有 *准备背包 ",
+  "UPGRADE_DESCRIPTION": "抽一张牌,如果这张牌在卡组中，战斗开始时视为你拥有 *准备背包 ",
+  "FLAVOR": "那确实很有准备了"
+},"Loop": {
+  "NAME": "循环",
+  "DESCRIPTION": "进入无尽模式",
+  "UPGRADE_DESCRIPTION": "进入无尽模式。",
+  "FLAVOR": "我该怎么赢？"
+}, "Static Discharge": {
+  "NAME": "静电释放",
+  "DESCRIPTION": "每有一个身上有金属的敌人，生成 !M! 个 闪电 充能球。",
+  "UPGRADE_DESCRIPTION": "每有一个身上有金属的敌人， 生成 !M! 个 闪电 充能球。",
+  "FLAVOR": "雷霆之诛，灭郡毁城！"
+},  "Impervious": {
+  "NAME": "岿然不动",
+  "DESCRIPTION": "获得 !B! 点 格挡 。本场战斗你无法逃跑 NL 消耗 。",
+  "FLAVOR": "敌军围困万千重，我自岿然不动！"
+}, "Wireheading": {
+  "NAME": "先见之明",
+  "DESCRIPTION": "你可以随时查看接下来的n组出怪。(n为卡组中本牌数量)",
+  "UPGRADE_DESCRIPTION": "你可以随时查看接下来的n组出怪。(n为卡组中本牌数量)",
+  "FLAVOR": "别带"
+},"Swivel": {
+  "NAME": "旋身",
+  "DESCRIPTION": "将你的角色水平翻转180度。你后方的敌人获得后方攻击，前方的敌人失去后方攻击 NL 你打出的下一张攻击牌耗能变为0。",
+  "FLAVOR": "别急，有反转"
+}, "LessonLearned": {
+  "NAME": "勤学精进",
+  "DESCRIPTION": "造成 !D! 点伤害。进行一次四六级英语词汇选择。每得一分.升级 你牌组中的一张随机牌。 消耗 。",
+  "FLAVOR": "你这个年纪怎么睡得着觉的！"
+},"Combust": {
+  "NAME": "自燃",
+  "DESCRIPTION": "在你的回合结束时，你失去1点生命，将一张 *燃烧 加入手牌。",
+  "UPGRADE_DESCRIPTION": "在你的回合结束时，你失去1点生命，将一张0费 *燃烧 添加到你的手牌。",
+  "FLAVOR": "这不是我们恶魔形态吗"
+},"ThirdEye": {
+  "NAME": "天眼",
+  "DESCRIPTION": "获得 !B! 点 格挡 。 NL 提前看到接下来的 !M! 组选牌和商店遗物。",
+  "FLAVOR": "战个未来吧"
+}, "Spot Weakness": {
+  "NAME": "观察弱点",
+  "DESCRIPTION": "打开对应怪物的wiki百科界面，如果目标有虚弱,你获得 !M! 点 力量 。",
+  "FLAVOR": "等我查个攻略先"
+},"Sword Boomerang": {
+  "NAME": "飞剑回旋镖",
+  "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。打出后回到手牌",
+  "FLAVOR": "警惕回旋镖"
+},"Terror": {
+  "NAME": "恐怖",
+  "DESCRIPTION": "对所有敌人给予99层 易伤 。 NL 消耗 。本场战斗有概率被女鬼突脸 ",
+  "FLAVOR": "幸亏我拿了金神像"
+},"Study": {
+  "NAME": "研习",
+  "DESCRIPTION": "在你的回合结束时，在你的抽牌堆中加入一张 *勤学精进 。"
+}
 }
