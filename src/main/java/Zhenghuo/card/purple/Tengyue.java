@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.LessonLearned;
 import com.megacrit.cardcrawl.cards.purple.Study;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,7 +35,7 @@ public class Tengyue extends AbstractCard {
     public Tengyue() {
         super("Tengyue", cardStrings.NAME, "purple/skill/vault", 1, cardStrings.DESCRIPTION, CardType.SKILL, CardColor.PURPLE, CardRarity.RARE, CardTarget.ALL);
         this.exhaust = true;
-    }
+      }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new VFXAction(new WhirlwindEffect(new Color(1.0F, 0.9F, 0.4F, 1.0F), true)));
@@ -55,7 +56,7 @@ public class Tengyue extends AbstractCard {
 
                   }
               }
-              Study
+
               isDone=true;
           }
       });

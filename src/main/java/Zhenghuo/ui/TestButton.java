@@ -40,6 +40,6 @@ public class TestButton extends TopPanelItem {
     }
 
     private void onRightClick() {
-
+Settings.isEndless=!Settings.isEndless;
     }
 }

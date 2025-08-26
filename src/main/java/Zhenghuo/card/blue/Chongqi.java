@@ -23,6 +23,7 @@ public class Chongqi extends AbstractCard {
         this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

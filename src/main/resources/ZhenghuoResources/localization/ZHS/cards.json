@@ -294,7 +294,7 @@
     "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 将你的头部变 tieba:透明 "
   },"Anger": {
   "NAME": "愤怒",
-  "DESCRIPTION": "造成 !D! 点伤害。 NL 进入 愤怒 将一张复制品加入弃牌堆 ",
+  "DESCRIPTION": "造成 !D! 点伤害。 NL 进入 愤怒 NL 将一张复制品加入弃牌堆 ",
   "FLAVOR": "我真的很愤怒"
 },  "Seeing Red": {
   "NAME": "盛怒",
@@ -308,10 +308,10 @@
 },  "DeusExMachina": {
   "NAME": "机械降神",
   "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，进入 神格 消耗 ",
-  "FLAVOR": ""
+  "FLAVOR": "到剧情杀了"
 },  "Vigilance": {
   "NAME": "警惕",
-  "DESCRIPTION": "本回合每次受到伤害时，获得 !B! 点 格挡 。",
+  "DESCRIPTION": "获得 !B! 点格挡,本回合每次受到伤害时，获得 !B! 点 格挡 。",
   "UPGRADE_DESCRIPTION": "DEPRECATED",
   "FLAVOR": "小心地滑！(摔倒)"
 }, "Prepared": {
@@ -344,7 +344,7 @@
   "FLAVOR": "别急，有反转"
 }, "LessonLearned": {
   "NAME": "勤学精进",
-  "DESCRIPTION": "造成 !D! 点伤害。进行一次四六级英语词汇选择。每得一分.升级 你牌组中的一张随机牌。 消耗 。",
+  "DESCRIPTION": "造成 !D! 点伤害。所有敌人头顶出现题目,如果回答正确,回合结束时其失去一半生命 消耗 。",
   "FLAVOR": "你这个年纪怎么睡得着觉的！"
 },"Combust": {
   "NAME": "自燃",
@@ -362,13 +362,14 @@
 },"Sword Boomerang": {
   "NAME": "飞剑回旋镖",
   "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。打出后回到手牌",
-  "FLAVOR": "警惕回旋镖"
+  "FLAVOR": ""
 },"Terror": {
   "NAME": "恐怖",
   "DESCRIPTION": "对所有敌人给予99层 易伤 。 NL 消耗 。本场战斗有概率被女鬼突脸 ",
   "FLAVOR": "幸亏我拿了金神像"
 },"Study": {
   "NAME": "研习",
-  "DESCRIPTION": "在你的回合结束时，在你的抽牌堆中加入一张 *勤学精进 。"
+  "DESCRIPTION": "在你的回合结束时，在你的抽牌堆中加入一张 *勤学精进 。",
+  "FLAVOR": "尖塔里怎么也内卷？"
 }
 }

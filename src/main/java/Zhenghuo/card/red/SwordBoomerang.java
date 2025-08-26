@@ -5,6 +5,7 @@
 
 package Zhenghuo.card.red;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -26,11 +27,19 @@ public class SwordBoomerang extends AbstractCard {
         this.baseDamage = 3;
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        this.returnToHand=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AttackEffect.SLASH_HORIZONTAL));
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    this.isDone=true;
+                    costForTurn=cost;
+                }
+            });
         }
 
     }

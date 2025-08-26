@@ -149,7 +149,7 @@ public static boolean StartRecord=false;
 public static ArrayList<EUITextBoxInput> UITorenders = new ArrayList<>();
     @Override
     public void receiveOnPlayerTurnStart() {
-        //todo 尝试完成结算题目的逻辑
+
         /*
         if(GameActionManager.turn==1){
             for (AbstractMonster monster : getCurrRoom().monsters.monsters) {
